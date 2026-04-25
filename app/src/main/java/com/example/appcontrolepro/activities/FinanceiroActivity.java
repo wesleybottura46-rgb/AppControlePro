@@ -2,6 +2,7 @@ package com.example.appcontrolepro.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ public class FinanceiroActivity extends AppCompatActivity {
     // campos da tela
     EditText edtDescricao, edtValor, edtTipo;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
