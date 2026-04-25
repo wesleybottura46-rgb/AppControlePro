@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!-- título -->
+    <TextView
+        android:id="@+id/txtTituloTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Time"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp"/>
+
+    <!-- nome do time -->
+    <EditText
+        android:id="@+id/edtNomeTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nome do time"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"/>
+
+    <!-- cidade -->
+    <EditText
+        android:id="@+id/edtCidadeTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Cidade"
+        app:layout_constraintTop_toBottomOf="@id/edtNomeTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- estado -->
+    <EditText
+        android:id="@+id/edtEstadoTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Estado"
+        app:layout_constraintTop_toBottomOf="@id/edtCidadeTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- botão salvar -->
+    <Button
+        android:id="@+id/btnSalvarTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Salvar Time"
+        android:onClick="salvarTime"
+        app:layout_constraintTop_toBottomOf="@id/edtEstadoTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

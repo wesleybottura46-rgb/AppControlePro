@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!-- título -->
+    <TextView
+        android:id="@+id/txtTituloMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Painel Principal"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp"/>
+
+    <!-- botão jogadores -->
+    <Button
+        android:id="@+id/btnJogadores"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Jogadores"
+        android:onClick="abrirJogadores"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"/>
+
+    <!-- botão jogos -->
+    <Button
+        android:id="@+id/btnJogos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Jogos"
+        android:onClick="abrirJogos"
+        app:layout_constraintTop_toBottomOf="@id/btnJogadores"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- botão financeiro -->
+    <Button
+        android:id="@+id/btnFinanceiro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Financeiro"
+        android:onClick="abrirFinanceiro"
+        app:layout_constraintTop_toBottomOf="@id/btnJogos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

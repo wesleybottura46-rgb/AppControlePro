@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- título -->
+        <TextView
+            android:id="@+id/txtTituloFinanceiro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Controle Financeiro"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- descrição -->
+        <EditText
+            android:id="@+id/edtDescricao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Descrição"
+            app:layout_constraintTop_toBottomOf="@id/txtTituloFinanceiro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+        <!-- valor -->
+        <EditText
+            android:id="@+id/edtValor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Valor"
+            android:inputType="numberDecimal"
+            app:layout_constraintTop_toBottomOf="@id/edtDescricao"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- tipo -->
+        <Spinner
+            android:id="@+id/edtTipo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/edtValor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- botão salvar -->
+        <Button
+            android:id="@+id/btnSalvarLancamento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Salvar Lançamento"
+            android:onClick="salvarLancamento"
+            app:layout_constraintTop_toBottomOf="@id/edtTipo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- saldo -->
+        <TextView
+            android:id="@+id/txtSaldo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Saldo atual: R$ 0.00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/btnSalvarLancamento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

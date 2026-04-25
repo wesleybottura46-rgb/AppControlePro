@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- título -->
+        <TextView
+            android:id="@+id/txtTituloJogadores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastro de Jogadores"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- nome -->
+        <EditText
+            android:id="@+id/edtNomeJogador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Nome do jogador"
+            app:layout_constraintTop_toBottomOf="@id/txtTituloJogadores"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+        <!-- número -->
+        <EditText
+            android:id="@+id/edtNumeroJogador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Número"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@id/edtNomeJogador"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- posição -->
+        <EditText
+            android:id="@+id/edtPosicaoJogador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Posição"
+            app:layout_constraintTop_toBottomOf="@id/edtNumeroJogador"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- botão salvar -->
+        <Button
+            android:id="@+id/btnSalvarJogador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Salvar Jogador"
+            android:onClick="salvarJogador"
+            app:layout_constraintTop_toBottomOf="@id/edtPosicaoJogador"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- lista -->
+        <TextView
+            android:id="@+id/txtListaJogadores"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nenhum jogador cadastrado"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/btnSalvarJogador"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
