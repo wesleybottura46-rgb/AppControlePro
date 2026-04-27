@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F1F8F4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ==========================
+         PLACAR
+    ========================== -->
+    <TextView
+        android:id="@+id/txtPlacar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0 x 0"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- ==========================
+         NOSSO TIME
+    ========================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="-"
+            android:onClick="menosNosso"/>
+
+        <TextView
+            android:id="@+id/txtNosso"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="+"
+            android:onClick="maisNosso"/>
+    </LinearLayout>
+
+    <!-- ==========================
+         ADVERSÁRIO
+    ========================== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="12dp">
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="-"
+            android:onClick="menosAdv"/>
+
+        <TextView
+            android:id="@+id/txtAdv"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="+"
+            android:onClick="maisAdv"/>
+    </LinearLayout>
+
+    <!-- ==========================
+         LISTA DE JOGADORES
+    ========================== -->
+    <ListView
+        android:id="@+id/listJogadores"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="6dp"
+        android:background="#FFFFFF"/>
+
+    <!-- ==========================
+         BOTÃO SALVAR
+    ========================== -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Salvar Súmula"
+        android:onClick="salvar"
+        android:backgroundTint="#2E7D32"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#2E7D32">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imgLogoSplash"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Nome do App -->
+    <TextView
+        android:id="@+id/txtNomeApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="App Controle Pro"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"/>
+
+    <!-- subtítulo -->
+    <TextView
+        android:id="@+id/txtSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gerencie seu time com facilidade"
+        android:textSize="16sp"
+        android:textColor="#C8E6C9"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "892795668675",
+    "project_id": "app-controle-pro",
+    "storage_bucket": "app-controle-pro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892795668675:android:25f9bcb2afb2dc25efba76",
+        "android_client_info": {
+          "package_name": "com.example.appcontrolepro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA56ecwXOxY1l_e-qz_ybj2BM7khOFKSSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

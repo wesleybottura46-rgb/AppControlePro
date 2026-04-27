@@ -1,71 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<!-- TELA PRINCIPAL PROFISSIONAL -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#F1F8F4"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="#F1F8F4">
+    android:layout_height="match_parent">
 
-    <!-- título -->
-    <TextView
-        android:id="@+id/txtTituloMain"
-        android:layout_width="wrap_content"
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Painel Principal"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="#2E7D32"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp"/>
+        android:background="#2E7D32"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <!-- botão jogadores -->
+        <TextView
+            android:id="@+id/txtNomeTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Meu Time"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- BOTÕES -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:text="+ Jogo"
+            android:onClick="abrirCadastroJogo"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:text="+ Jogador"
+            android:onClick="abrirCadastroJogador"
+            android:backgroundTint="#1B5E20"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="6dp"/>
+    </LinearLayout>
+
+    <!-- CARD JOGOS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jogos"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="6dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerJogos"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"/>
+    </LinearLayout>
+
+    <!-- CARD ARTILHEIROS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:elevation="4dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artilheiros"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="6dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerJogadores"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <!-- TROCAR TIME -->
     <Button
-        android:id="@+id/btnJogadores"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:text="Jogadores"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/botao_verde"
-        android:backgroundTint="@null"
-        android:onClick="abrirJogadores"
-        app:layout_constraintTop_toBottomOf="@id/txtTituloMain"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Trocar Time"
+        android:onClick="trocarTime"
+        android:backgroundTint="#C8E6C9"
+        android:textColor="#2E7D32"/>
 
-    <!-- botão jogos -->
     <Button
-        android:id="@+id/btnJogos"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="Jogos"
+        android:text="Sair"
+        android:onClick="sair"
+        android:backgroundTint="#C62828"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/botao_verde"
-        android:backgroundTint="@null"
-        android:onClick="abrirJogos"
-        app:layout_constraintTop_toBottomOf="@id/btnJogadores"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="10dp"/>
 
-    <!-- botão financeiro -->
-    <Button
-        android:id="@+id/btnFinanceiro"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:text="Financeiro"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/botao_verde"
-        android:backgroundTint="@null"
-        android:onClick="abrirFinanceiro"
-        app:layout_constraintTop_toBottomOf="@id/btnJogos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

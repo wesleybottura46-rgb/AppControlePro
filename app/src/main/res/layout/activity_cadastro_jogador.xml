@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- NOME -->
+    <EditText
+        android:id="@+id/edtNomeJogador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome do jogador"
+        android:textColor="#2E7D32"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- POSIÇÃO -->
+    <Spinner
+        android:id="@+id/spinnerPosicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- BOTÃO -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Cadastrar Jogador"
+        android:onClick="cadastrarJogador"
+        android:backgroundTint="#2E7D32"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

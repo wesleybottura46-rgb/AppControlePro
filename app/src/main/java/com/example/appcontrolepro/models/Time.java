@@ -1,62 +1,57 @@
 package com.example.appcontrolepro.models;
 
-// Classe que representa um time
+// =========================================================
+// MODEL: TIME
+// =========================================================
+// Representa um time cadastrado pelo usuario.
+//
+// Colecao no Firestore:
+// times
 public class Time {
 
-    // Atributos do time
-    private int id;
+    // ID do documento no Firestore.
+    private String id;
+
+    // Dados principais do time.
     private String nome;
     private String cidade;
     private String estado;
 
-    // Construtor vazio
+    // UID do usuario dono do time.
+    private String userId;
+
+    // URL da imagem enviada para o Firebase Storage.
+    private String emblema;
+
+    // Construtor vazio obrigatorio para o Firebase.
     public Time() {
     }
 
-    // Construtor com parâmetros
-    public Time(String nome, String cidade, String estado) {
+    // Construtor para criar time novo.
+    public Time(String nome, String cidade, String estado, String userId, String emblema) {
         this.nome = nome;
         this.cidade = cidade;
         this.estado = estado;
+        this.userId = userId;
+        this.emblema = emblema;
     }
 
-    // Retorna o id do time
-    public int getId() {
-        return id;
-    }
+    // Getters e setters.
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    // Define o id do time
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    // Retorna o nome do time
-    public String getNome() {
-        return nome;
-    }
+    public String getCidade() { return cidade; }
+    public void setCidade(String cidade) { this.cidade = cidade; }
 
-    // Define o nome do time
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 
-    // Retorna a cidade do time
-    public String getCidade() {
-        return cidade;
-    }
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
 
-    // Define a cidade do time
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    // Retorna o estado do time
-    public String getEstado() {
-        return estado;
-    }
-
-    // Define o estado do time
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    public String getEmblema() { return emblema; }
+    public void setEmblema(String emblema) { this.emblema = emblema; }
 }

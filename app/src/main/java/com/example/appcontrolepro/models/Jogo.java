@@ -1,62 +1,71 @@
 package com.example.appcontrolepro.models;
 
-// Classe que representa um jogo
+// =========================================================
+// MODEL: JOGO
+// =========================================================
+// Representa um jogo cadastrado pelo usuario.
+//
+// Colecao no Firestore:
+// jogos
+//
+// Observacao:
+// placarNosso e placarAdversario podem ser null enquanto a sumula
+// ainda nao foi preenchida.
 public class Jogo {
 
-    // Atributos do jogo
-    private int id;
+    // ID do documento no Firestore.
+    private String id;
+
+    // ID do time dono desse jogo.
+    private String timeId;
+
+    // Dados basicos do jogo.
     private String adversario;
     private String data;
+    private String hora;
     private String local;
 
-    // Construtor vazio
+    // Placar salvo pela SumulaActivity.
+    private Long placarNosso;
+    private Long placarAdversario;
+
+    // Construtor vazio obrigatorio para o Firebase.
     public Jogo() {
     }
 
-    // Construtor com parâmetros
-    public Jogo(String adversario, String data, String local) {
+    // Construtor para criar jogo novo antes da sumula existir.
+    public Jogo(String timeId, String adversario, String data, String hora, String local) {
+        this.timeId = timeId;
         this.adversario = adversario;
         this.data = data;
+        this.hora = hora;
         this.local = local;
+        this.placarNosso = null;
+        this.placarAdversario = null;
     }
 
-    // Retorna o id do jogo
-    public int getId() {
-        return id;
-    }
+    // Getters e setters.
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    // Define o id do jogo
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getTimeId() { return timeId; }
+    public void setTimeId(String timeId) { this.timeId = timeId; }
 
-    // Retorna o adversário
-    public String getAdversario() {
-        return adversario;
-    }
+    public String getAdversario() { return adversario; }
+    public void setAdversario(String adversario) { this.adversario = adversario; }
 
-    // Define o adversário
-    public void setAdversario(String adversario) {
-        this.adversario = adversario;
-    }
+    public String getData() { return data; }
+    public void setData(String data) { this.data = data; }
 
-    // Retorna a data do jogo
-    public String getData() {
-        return data;
-    }
+    public String getHora() { return hora; }
+    public void setHora(String hora) { this.hora = hora; }
 
-    // Define a data do jogo
-    public void setData(String data) {
-        this.data = data;
-    }
+    public String getLocal() { return local; }
+    public void setLocal(String local) { this.local = local; }
 
-    // Retorna o local do jogo
-    public String getLocal() {
-        return local;
-    }
+    public Long getPlacarNosso() { return placarNosso; }
+    public void setPlacarNosso(Long placarNosso) { this.placarNosso = placarNosso; }
 
-    // Define o local do jogo
-    public void setLocal(String local) {
-        this.local = local;
-    }
+    public Long getPlacarAdversario() { return placarAdversario; }
+    public void setPlacarAdversario(Long placarAdversario) { this.placarAdversario = placarAdversario; }
 }

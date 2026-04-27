@@ -2,54 +2,65 @@ package com.example.appcontrolepro.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.appcontrolepro.R;
-import com.example.appcontrolepro.database.DatabaseHelper;
+import com.example.appcontrolepro.database.FirebaseHelper;
 
+import java.util.HashMap;
+import java.util.Map;
+
+// ======================================================
+// TELA DE CADASTRO DE TIME
+// ======================================================
 public class CadastroTimeActivity extends AppCompatActivity {
 
-    EditText edtNomeTime, edtCidadeTime, edtEstadoTime;
+    // CAMPO DE TEXTO
+    EditText edtNomeTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_time);
 
+        // LIGA O XML
         edtNomeTime = findViewById(R.id.edtNomeTime);
-        edtCidadeTime = findViewById(R.id.edtCidadeTime);
-        edtEstadoTime = findViewById(R.id.edtEstadoTime);
     }
 
-    public void salvarTime(View view) {
+    // ======================================================
+    // BOTÃO SALVAR TIME
+    // ======================================================
+    public void cadastrarTime(View view){
 
         String nome = edtNomeTime.getText().toString().trim();
-        String cidade = edtCidadeTime.getText().toString().trim();
-        String estado = edtEstadoTime.getText().toString().trim();
 
-        if (nome.isEmpty() || cidade.isEmpty() || estado.isEmpty()) {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+        // VALIDAÇÃO
+        if(nome.isEmpty()){
+            Toast.makeText(this,"Digite o nome do time",Toast.LENGTH_SHORT).show();
             return;
         }
 
-        DatabaseHelper db = new DatabaseHelper(this);
+        // CRIA DADOS
+        Map<String,Object> dados = new HashMap<>();
+        dados.put("nome", nome);
 
-        boolean sucesso = db.cadastrarTime(nome, cidade, estado);
+        // SALVA NO FIREBASE
+        FirebaseHelper.getFirestore()
+                .collection("times")
+                .add(dados)
+                .addOnSuccessListener(doc -> {
 
-        db.close();
+                    // 🔥 LIMPA CAMPO
+                    edtNomeTime.setText("");
 
-        if (sucesso) {
-            Toast.makeText(this, "Time cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-
-            Intent tela = new Intent(this, MainActivity.class);
-            startActivity(tela);
-            finish();
-        } else {
-            Toast.makeText(this, "Erro ao cadastrar time", Toast.LENGTH_SHORT).show();
-        }
+                    // 🔥 MENSAGEM DE SUCESSO
+                    Toast.makeText(this,"Time cadastrado com sucesso",Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this,"Erro ao cadastrar time",Toast.LENGTH_SHORT).show();
+                });
     }
 }
