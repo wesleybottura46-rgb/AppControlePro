@@ -1,78 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<!-- ===================================================== -->
+<!-- TELA CADASTRAR TIME -->
+<!-- ===================================================== -->
+<!-- VISUAL LIMPO -->
+<!-- SEM EMBLEMA -->
+<!-- MAIS SIMÉTRICO -->
+<!-- ===================================================== -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
     android:background="#F1F8F4">
 
-    <!-- título -->
-    <TextView
-        android:id="@+id/txtTituloTime"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Time"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="#2E7D32"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp"/>
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <!-- nome do time -->
-    <EditText
-        android:id="@+id/edtNomeTime"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:hint="Nome do time"
-        android:padding="16dp"
-        android:background="@drawable/campo_verde"
-        app:layout_constraintTop_toBottomOf="@id/txtTituloTime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"/>
+        <!-- ================================================= -->
+        <!-- TÍTULO -->
+        <!-- ================================================= -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar Time"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:gravity="center"
+            android:layout_marginBottom="36dp"/>
 
-    <!-- cidade -->
-    <EditText
-        android:id="@+id/edtCidadeTime"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:hint="Cidade"
-        android:padding="16dp"
-        android:background="@drawable/campo_verde"
-        app:layout_constraintTop_toBottomOf="@id/edtNomeTime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        <!-- ================================================= -->
+        <!-- NOME -->
+        <!-- ================================================= -->
+        <EditText
+            android:id="@+id/edtNomeTime"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Nome do time"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#222222"
+            android:textSize="16sp"
+            android:background="#FFFFFF"/>
 
-    <!-- estado -->
-    <EditText
-        android:id="@+id/edtEstadoTime"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:hint="Estado"
-        android:padding="16dp"
-        android:background="@drawable/campo_verde"
-        app:layout_constraintTop_toBottomOf="@id/edtCidadeTime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        <!-- ================================================= -->
+        <!-- CIDADE -->
+        <!-- ================================================= -->
+        <EditText
+            android:id="@+id/edtCidade"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Cidade"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#222222"
+            android:textSize="16sp"
+            android:background="#FFFFFF"/>
 
-    <!-- botão salvar -->
-    <Button
-        android:id="@+id/btnSalvarTime"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:text="Salvar Time"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/botao_verde"
-        android:backgroundTint="@null"
-        android:onClick="salvarTime"
-        app:layout_constraintTop_toBottomOf="@id/edtEstadoTime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        <!-- ================================================= -->
+        <!-- ESTADO -->
+        <!-- ================================================= -->
+        <EditText
+            android:id="@+id/edtEstado"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="32dp"
+            android:hint="Estado"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#222222"
+            android:textSize="16sp"
+            android:background="#FFFFFF"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- ================================================= -->
+        <!-- BOTÃO -->
+        <!-- ================================================= -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:backgroundTint="#2E7D32"
+            android:onClick="cadastrarTime"
+            android:text="Salvar Time"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+
+</ScrollView>

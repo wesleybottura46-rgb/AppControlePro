@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8F4">
+
+    <!-- TÍTULO -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Editar Jogo"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#2E7D32"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- ADVERSÁRIO -->
+    <EditText
+        android:id="@+id/edtAdversario"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Adversário"
+        android:textColor="#2E7D32" />
+
+    <!-- DATA -->
+    <EditText
+        android:id="@+id/edtData"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Data"
+        android:focusable="false"
+        android:textColor="#2E7D32" />
+
+    <!-- HORA -->
+    <EditText
+        android:id="@+id/edtHora"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Hora"
+        android:focusable="false"
+        android:textColor="#2E7D32" />
+
+    <!-- LOCAL -->
+    <EditText
+        android:id="@+id/edtLocal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Local"
+        android:textColor="#2E7D32" />
+
+    <!-- BOTÃO -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Salvar Alterações"
+        android:onClick="salvarEdicao"
+        android:backgroundTint="#2E7D32"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>

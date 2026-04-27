@@ -1,68 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
     android:background="#F1F8F4">
 
-    <!-- título -->
-    <TextView
-        android:id="@+id/txtTitulo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="#2E7D32"
-        android:layout_marginBottom="40dp"/>
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
 
-    <!-- campo email -->
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:hint="@string/digite_email"
-        android:inputType="textEmailAddress"
-        android:padding="16dp"
-        android:background="@drawable/campo_verde"
-        android:layout_marginBottom="16dp"/>
+        <!-- TÍTULO -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Controle Pro"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="32dp"/>
 
-    <!-- campo senha -->
-    <EditText
-        android:id="@+id/edtSenha"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:hint="@string/digite_senha"
-        android:inputType="textPassword"
-        android:padding="16dp"
-        android:background="@drawable/campo_verde"
-        android:layout_marginBottom="24dp"/>
+        <!-- CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp">
 
-    <!-- botão entrar -->
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="@string/entrar"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/botao_verde"
-        android:backgroundTint="@null"
-        android:onClick="fazerLogin"
-        android:layout_marginBottom="12dp"/>
+            <!-- EMAIL -->
+            <EditText
+                android:id="@+id/edtEmailLogin"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="16dp"
+                android:textColor="#2E7D32" />
 
-    <!-- botão criar conta -->
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="@string/criar_conta"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/botao_verde_claro"
-        android:backgroundTint="@null"
-        android:onClick="abrirCadastro"/>
+            <!-- SENHA -->
+            <EditText
+                android:id="@+id/edtSenhaLogin"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:layout_marginBottom="8dp"
+                android:textColor="#2E7D32" />
 
-</LinearLayout>
+            <!-- CHECKBOX MANTER LOGADO -->
+            <CheckBox
+                android:id="@+id/checkManterLogado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manter logado"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- ESQUECI SENHA -->
+            <TextView
+                android:id="@+id/txtEsqueciSenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Esqueci minha senha"
+                android:textColor="#2E7D32"
+                android:textStyle="bold"
+                android:onClick="recuperarSenha"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- LOGIN -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Entrar"
+                android:backgroundTint="#2E7D32"
+                android:textColor="#FFFFFF"
+                android:onClick="fazerLogin"/>
+
+            <!-- CADASTRO -->
+            <Button
+                android:id="@+id/btnCadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Criar conta"
+                android:backgroundTint="#C8E6C9"
+                android:textColor="#2E7D32"
+                android:onClick="abrirCadastro"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

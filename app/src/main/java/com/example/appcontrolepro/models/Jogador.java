@@ -1,62 +1,68 @@
 package com.example.appcontrolepro.models;
 
-// Classe que representa um jogador
+// =========================================================
+// MODEL: JOGADOR
+// =========================================================
+// Um model representa o formato dos dados.
+//
+// Esta classe mostra como um jogador deve ser salvo/lido.
+// Mesmo que algumas telas usem Map<String, Object>, o model ajuda voce
+// a entender quais campos existem no documento "jogadores" do Firestore.
+//
+// Colecao no Firestore:
+// jogadores
 public class Jogador {
 
-    // Atributos do jogador
-    private int id;
+    // ID do documento no Firestore.
+    private String id;
+
+    // Nome do jogador.
     private String nome;
-    private int numero;
+
+    // Posicao em campo.
     private String posicao;
 
-    // Construtor vazio
+    // ID do time ao qual esse jogador pertence.
+    private String timeId;
+
+    // Estatisticas acumuladas.
+    private int gols;
+    private int assistencias;
+    private int jogos;
+
+    // Construtor vazio obrigatorio para o Firebase.
     public Jogador() {
     }
 
-    // Construtor com parâmetros
-    public Jogador(String nome, int numero, String posicao) {
+    // Construtor usado quando queremos criar um jogador novo no codigo.
+    public Jogador(String nome, String posicao, String timeId) {
         this.nome = nome;
-        this.numero = numero;
         this.posicao = posicao;
+        this.timeId = timeId;
+        this.gols = 0;
+        this.assistencias = 0;
+        this.jogos = 0;
     }
 
-    // Retorna o id do jogador
-    public int getId() {
-        return id;
-    }
+    // Getters e setters permitem acessar/alterar campos privados.
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    // Define o id do jogador
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    // Retorna o nome do jogador
-    public String getNome() {
-        return nome;
-    }
+    public String getPosicao() { return posicao; }
+    public void setPosicao(String posicao) { this.posicao = posicao; }
 
-    // Define o nome do jogador
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public String getTimeId() { return timeId; }
+    public void setTimeId(String timeId) { this.timeId = timeId; }
 
-    // Retorna o número do jogador
-    public int getNumero() {
-        return numero;
-    }
+    public int getGols() { return gols; }
+    public void setGols(int gols) { this.gols = gols; }
 
-    // Define o número do jogador
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+    public int getAssistencias() { return assistencias; }
+    public void setAssistencias(int assistencias) { this.assistencias = assistencias; }
 
-    // Retorna a posição do jogador
-    public String getPosicao() {
-        return posicao;
-    }
-
-    // Define a posição do jogador
-    public void setPosicao(String posicao) {
-        this.posicao = posicao;
-    }
+    public int getJogos() { return jogos; }
+    public void setJogos(int jogos) { this.jogos = jogos; }
 }

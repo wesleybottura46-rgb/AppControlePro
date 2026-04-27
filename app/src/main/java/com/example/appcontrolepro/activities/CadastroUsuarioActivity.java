@@ -5,62 +5,69 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.appcontrolepro.R;
-import com.example.appcontrolepro.database.DatabaseHelper;
+import com.example.appcontrolepro.database.FirebaseHelper;
 
+// =========================================================
+// CADASTRO USUARIO ACTIVITY
+// =========================================================
+// Tela responsavel por criar uma conta no Firebase Authentication.
+//
+// Depois do cadastro:
+// - O usuario e enviado para CadastroTimeActivity.
+// - Assim ele ja cria o primeiro time.
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
-    // Campos da tela de cadastro
-    EditText edtNomeCadastro, edtEmailCadastro, edtSenhaCadastro;
+    private EditText edtEmail, edtSenha;
+    private Button btnCadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Define o layout da tela
         setContentView(R.layout.activity_cadastro_usuario);
 
-        // Liga os campos do XML às variáveis Java
-        edtNomeCadastro = findViewById(R.id.edtNomeCadastro);
-        edtEmailCadastro = findViewById(R.id.edtEmailCadastro);
-        edtSenhaCadastro = findViewById(R.id.edtSenhaCadastro);
+        edtEmail = findViewById(R.id.edtEmailCadastro);
+        edtSenha = findViewById(R.id.edtSenhaCadastro);
+        btnCadastrar = findViewById(R.id.btnCadastrarUsuario);
+
+        // Aqui usamos setOnClickListener em vez de android:onClick no XML.
+        btnCadastrar.setOnClickListener(v -> cadastrar());
     }
 
-    // Método chamado ao clicar no botão "Continuar"
-    public void continuarCadastro(View view){
+    // Valida email/senha e cria a conta no Firebase.
+    private void cadastrar() {
+        String email = edtEmail.getText().toString().trim();
+        String senha = edtSenha.getText().toString().trim();
 
-        // Captura os dados digitados pelo usuário
-        String nome = edtNomeCadastro.getText().toString().trim();
-        String email = edtEmailCadastro.getText().toString().trim();
-        String senha = edtSenhaCadastro.getText().toString().trim();
-
-        // Verifica se algum campo está vazio
-        if(nome.isEmpty() || email.isEmpty() || senha.isEmpty()){
+        if (email.isEmpty() || senha.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Cria conexão com o banco
-        DatabaseHelper db = new DatabaseHelper(this);
-
-        // Tenta cadastrar o usuário
-        boolean sucesso = db.cadastrarUsuario(nome, email, senha);
-
-        // Fecha a conexão com o banco
-        db.close();
-
-        // Se cadastrar com sucesso, abre a próxima tela
-        if(sucesso){
-            Intent tela = new Intent(this, TipoUsuarioActivity.class);
-            startActivity(tela);
-
-            // Fecha a tela atual
-            finish();
-        }else{
-            Toast.makeText(this, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
+        if (senha.length() < 6) {
+            Toast.makeText(this, "A senha precisa ter pelo menos 6 caracteres", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        // Firebase cria o usuario com email e senha.
+        FirebaseHelper.getAuth()
+                .createUserWithEmailAndPassword(email, senha)
+                .addOnSuccessListener(authResult -> {
+                    Toast.makeText(this, "Cadastro realizado", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, CadastroTimeActivity.class));
+                    finish();
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                );
+    }
+
+    // Botao para voltar para a tela de login.
+    public void voltarLogin(View view) {
+        finish();
     }
 }

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.AppControlePro" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/green_500</item>
-        <item name="colorPrimaryVariant">@color/green_700</item>
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="android:statusBarColor">@color/green_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+    <style name="Theme.AppControlePro" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        id="theme_fix"
+        <item name="android:fitsSystemWindows">true</item>
+
+        <!-- COR PRINCIPAL -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primaryDark</item>
+
+        <!-- TEXTO -->
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColorHint">@color/textSecondary</item>
+
+        <!-- FUNDO -->
+        <item name="android:windowBackground">@color/background</item>
+
+
+
     </style>
 
 </resources>

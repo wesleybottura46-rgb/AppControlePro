@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Meu App</string>
-    <string name="login">Login</string>
-    <string name="digite_email">Digite seu email</string>
-    <string name="digite_senha">Digite sua senha</string>
-    <string name="entrar">Entrar</string>
-    <string name="criar_conta">Criar conta</string>
+    <string name="app_name" translatable="false">Manager</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="digite_email" translatable="false">Digite seu email</string>
+    <string name="digite_senha" translatable="false">Digite sua senha</string>
+    <string name="entrar" translatable="false">Entrar</string>
+    <string name="criar_conta" translatable="false">Criar conta</string>
 
     <string-array name="tipos_financeiro">
         <item>Receita</item>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ===================================================== -->
+<!-- TELA SÚMULA -->
+<!-- ===================================================== -->
+<!-- -->
+<!-- NOVO VISUAL BASEADO NO DESENHO -->
+<!-- -->
+<!-- JOGADOR | GOLS | ASSIST -->
+<!-- -->
+<!-- SEM ALTERAR A LÓGICA DO APP -->
+<!-- ===================================================== -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F8F4"
+    android:padding="12dp">
+
+    <!-- ================================================= -->
+    <!-- PLACAR -->
+    <!-- ================================================= -->
+    <TextView
+        android:id="@+id/txtPlacar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0 x 0"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- ================================================= -->
+    <!-- CONTROLE PLACAR -->
+    <!-- ================================================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <!-- NOSSO TIME -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nosso"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="-"
+                    android:onClick="menosNosso"/>
+
+                <TextView
+                    android:id="@+id/txtNosso"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:text="0"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="+"
+                    android:onClick="maisNosso"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ADVERSÁRIO -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adversário"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="-"
+                    android:onClick="menosAdv"/>
+
+                <TextView
+                    android:id="@+id/txtAdv"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:text="0"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="+"
+                    android:onClick="maisAdv"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ================================================= -->
+    <!-- CABEÇALHO -->
+    <!-- ================================================= -->
+    <!-- -->
+    <!-- IGUAL AO DESENHO -->
+    <!-- -->
+    <!-- JOGADOR | GOLS | ASSIST -->
+    <!-- ================================================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#DDEBDD"
+        android:padding="10dp"
+        android:layout_marginBottom="6dp">
+
+        <!-- JOGADOR -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Jogador"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+
+        <!-- GOLS -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⚽ Gols"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+
+        <!-- ASSIST -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🎯 Assist"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+    <!-- ================================================= -->
+    <!-- LISTA -->
+    <!-- ================================================= -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerJogadores"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="10dp"/>
+
+    <!-- ================================================= -->
+    <!-- BOTÃO SALVAR -->
+    <!-- ================================================= -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Salvar Súmula"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2E7D32"
+        android:onClick="salvar"/>
+
+</LinearLayout>
