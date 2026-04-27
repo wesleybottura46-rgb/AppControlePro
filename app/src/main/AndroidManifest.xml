@@ -11,60 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppControlePro">
-        <activity
-            android:name=".FinanceiroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".JogosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".JogadoresActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EscolherTimeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CadastroTimeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TipoUsuarioActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CadastroUsuarioActivity"
-            android:exported="false" /> <!-- Tela inicial de login -->
+
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Tela principal -->
-        <activity
-            android:name=".activities.MainActivity"
-            android:exported="false" /> <!-- Cadastro de usuário -->
-        <activity
-            android:name=".activities.CadastroUsuarioActivity"
-            android:exported="false" /> <!-- Escolher tipo de usuário -->
-        <activity
-            android:name=".activities.TipoUsuarioActivity"
-            android:exported="false" /> <!-- Cadastro do time -->
-        <activity
-            android:name=".activities.CadastroTimeActivity"
-            android:exported="false" /> <!-- Escolher time -->
-        <activity
-            android:name=".activities.EscolherTimeActivity"
-            android:exported="false" /> <!-- Jogadores -->
-        <activity
-            android:name=".activities.JogadoresActivity"
-            android:exported="false" /> <!-- Jogos -->
-        <activity
-            android:name=".activities.JogosActivity"
-            android:exported="false" /> <!-- Financeiro -->
-        <activity
-            android:name=".activities.FinanceiroActivity"
-            android:exported="false" />
+        </activity>
+
+        <activity android:name=".activities.MainActivity" android:exported="false" />
+        <activity android:name=".activities.CadastroUsuarioActivity" android:exported="false" />
+        <activity android:name=".activities.TipoUsuarioActivity" android:exported="false" />
+        <activity android:name=".activities.CadastroTimeActivity" android:exported="false" />
+        <activity android:name=".activities.EscolherTimeActivity" android:exported="false" />
+        <activity android:name=".activities.JogadoresActivity" android:exported="false" />
+        <activity android:name=".activities.JogosActivity" android:exported="false" />
+        <activity android:name=".activities.FinanceiroActivity" android:exported="false" />
+
     </application>
 
 </manifest>

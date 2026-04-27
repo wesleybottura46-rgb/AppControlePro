@@ -12,34 +12,50 @@ import com.example.appcontrolepro.database.DatabaseHelper;
 
 public class JogosActivity extends AppCompatActivity {
 
-    // campos da tela
+    // Campos da tela
     EditText edtAdversario, edtDataJogo, edtLocalJogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Define o layout da tela
         setContentView(R.layout.activity_jogos);
 
-        // conecta os campos do XML
+        // Liga os campos do XML às variáveis Java
         edtAdversario = findViewById(R.id.edtAdversario);
         edtDataJogo = findViewById(R.id.edtData);
         edtLocalJogo = findViewById(R.id.edtLocal);
     }
 
-    // salva jogo
+    // Método chamado ao clicar no botão salvar
     public void salvarJogo(View view){
 
+        // Captura os dados digitados
         String adversario = edtAdversario.getText().toString().trim();
         String data = edtDataJogo.getText().toString().trim();
         String local = edtLocalJogo.getText().toString().trim();
 
+        // Verifica se todos os campos foram preenchidos
+        if(adversario.isEmpty() || data.isEmpty() || local.isEmpty()){
+            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Cria conexão com o banco
         DatabaseHelper db = new DatabaseHelper(this);
 
+        // Salva o jogo no banco
         boolean sucesso = db.cadastrarJogo(adversario, data, local);
 
+        // Fecha o banco
+        db.close();
+
+        // Verifica se salvou com sucesso
         if(sucesso){
             Toast.makeText(this, "Jogo cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
+            // Limpa os campos após salvar
             edtAdversario.setText("");
             edtDataJogo.setText("");
             edtLocalJogo.setText("");

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#F1F8F4">
 
     <!-- título da tela -->
     <TextView
@@ -11,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Criar Conta"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="#2E7D32"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,9 +24,11 @@
     <EditText
         android:id="@+id/edtNomeCadastro"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:hint="Nome"
         android:inputType="textPersonName"
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
         app:layout_constraintTop_toBottomOf="@id/txtTituloCadastro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,9 +38,11 @@
     <EditText
         android:id="@+id/edtEmailCadastro"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
         app:layout_constraintTop_toBottomOf="@id/edtNomeCadastro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,9 +52,11 @@
     <EditText
         android:id="@+id/edtSenhaCadastro"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:hint="Senha"
         android:inputType="textPassword"
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
         app:layout_constraintTop_toBottomOf="@id/edtEmailCadastro"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,8 +66,12 @@
     <Button
         android:id="@+id/btnContinuarCadastro"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:text="Continuar"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:background="@drawable/botao_verde"
+        android:backgroundTint="@null"
         android:onClick="continuarCadastro"
         app:layout_constraintTop_toBottomOf="@id/edtSenhaCadastro"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">AppControlePro</string>
+    <string name="app_name">Meu App</string>
+    <string name="login">Login</string>
+    <string name="digite_email">Digite seu email</string>
+    <string name="digite_senha">Digite sua senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Criar conta</string>
+
+    <string-array name="tipos_financeiro">
+        <item>Receita</item>
+        <item>Despesa</item>
+    </string-array>
 </resources>

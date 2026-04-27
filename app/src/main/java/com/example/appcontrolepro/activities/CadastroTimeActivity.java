@@ -25,22 +25,30 @@ public class CadastroTimeActivity extends AppCompatActivity {
         edtEstadoTime = findViewById(R.id.edtEstadoTime);
     }
 
-    public void salvarTime(View view){
+    public void salvarTime(View view) {
 
         String nome = edtNomeTime.getText().toString().trim();
         String cidade = edtCidadeTime.getText().toString().trim();
         String estado = edtEstadoTime.getText().toString().trim();
 
+        if (nome.isEmpty() || cidade.isEmpty() || estado.isEmpty()) {
+            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         DatabaseHelper db = new DatabaseHelper(this);
 
         boolean sucesso = db.cadastrarTime(nome, cidade, estado);
 
-        if(sucesso){
+        db.close();
+
+        if (sucesso) {
             Toast.makeText(this, "Time cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
             Intent tela = new Intent(this, MainActivity.class);
             startActivity(tela);
-        }else{
+            finish();
+        } else {
             Toast.makeText(this, "Erro ao cadastrar time", Toast.LENGTH_SHORT).show();
         }
     }

@@ -3,51 +3,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F1F8F4">
 
-    <!-- título da tela -->
+    <!-- título -->
     <TextView
+        android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:textSize="28sp"
+        android:text="@string/login"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp"/>
+        android:textColor="#2E7D32"
+        android:layout_marginBottom="40dp"/>
 
-    <!-- campo para digitar email -->
+    <!-- campo email -->
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Digite seu email"
+        android:layout_height="55dp"
+        android:hint="@string/digite_email"
         android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
         android:layout_marginBottom="16dp"/>
 
-    <!-- campo para digitar senha -->
+    <!-- campo senha -->
     <EditText
         android:id="@+id/edtSenha"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Digite sua senha"
+        android:layout_height="55dp"
+        android:hint="@string/digite_senha"
         android:inputType="textPassword"
-        android:layout_marginBottom="20dp"/>
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
+        android:layout_marginBottom="24dp"/>
 
-    <!-- botão para entrar -->
+    <!-- botão entrar -->
     <Button
         android:id="@+id/btnEntrar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Entrar"
+        android:layout_height="55dp"
+        android:text="@string/entrar"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:background="@drawable/botao_verde"
+        android:backgroundTint="@null"
         android:onClick="fazerLogin"
         android:layout_marginBottom="12dp"/>
 
-    <!-- botão para abrir cadastro -->
+    <!-- botão criar conta -->
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Criar conta"
+        android:layout_height="55dp"
+        android:text="@string/criar_conta"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:background="@drawable/botao_verde_claro"
+        android:backgroundTint="@null"
         android:onClick="abrirCadastro"/>
 
 </LinearLayout>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#F1F8F4">
 
     <!-- título -->
     <TextView
@@ -11,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastrar Time"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="#2E7D32"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,8 +24,10 @@
     <EditText
         android:id="@+id/edtNomeTime"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:hint="Nome do time"
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
         app:layout_constraintTop_toBottomOf="@id/txtTituloTime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,8 +37,10 @@
     <EditText
         android:id="@+id/edtCidadeTime"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:hint="Cidade"
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
         app:layout_constraintTop_toBottomOf="@id/edtNomeTime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +50,10 @@
     <EditText
         android:id="@+id/edtEstadoTime"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:hint="Estado"
+        android:padding="16dp"
+        android:background="@drawable/campo_verde"
         app:layout_constraintTop_toBottomOf="@id/edtCidadeTime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +63,12 @@
     <Button
         android:id="@+id/btnSalvarTime"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:text="Salvar Time"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:background="@drawable/botao_verde"
+        android:backgroundTint="@null"
         android:onClick="salvarTime"
         app:layout_constraintTop_toBottomOf="@id/edtEstadoTime"
         app:layout_constraintStart_toStartOf="parent"

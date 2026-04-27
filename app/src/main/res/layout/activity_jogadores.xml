@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#F1F8F4">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,8 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cadastro de Jogadores"
-            android:textSize="26sp"
+            android:textSize="30sp"
             android:textStyle="bold"
+            android:textColor="#2E7D32"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -25,8 +27,10 @@
         <EditText
             android:id="@+id/edtNomeJogador"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:hint="Nome do jogador"
+            android:padding="16dp"
+            android:background="@drawable/campo_verde"
             app:layout_constraintTop_toBottomOf="@id/txtTituloJogadores"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +40,11 @@
         <EditText
             android:id="@+id/edtNumeroJogador"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:hint="Número"
             android:inputType="number"
+            android:padding="16dp"
+            android:background="@drawable/campo_verde"
             app:layout_constraintTop_toBottomOf="@id/edtNomeJogador"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +54,10 @@
         <EditText
             android:id="@+id/edtPosicaoJogador"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:hint="Posição"
+            android:padding="16dp"
+            android:background="@drawable/campo_verde"
             app:layout_constraintTop_toBottomOf="@id/edtNumeroJogador"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,8 +67,12 @@
         <Button
             android:id="@+id/btnSalvarJogador"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:text="Salvar Jogador"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/botao_verde"
+            android:backgroundTint="@null"
             android:onClick="salvarJogador"
             app:layout_constraintTop_toBottomOf="@id/edtPosicaoJogador"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +86,9 @@
             android:layout_height="wrap_content"
             android:text="Nenhum jogador cadastrado"
             android:textSize="16sp"
+            android:textColor="#1B5E20"
+            android:padding="12dp"
+            android:background="@drawable/campo_verde"
             app:layout_constraintTop_toBottomOf="@id/btnSalvarJogador"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
