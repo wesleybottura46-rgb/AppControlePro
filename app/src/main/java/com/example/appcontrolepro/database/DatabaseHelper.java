@@ -6,53 +6,53 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-// essa classe é responsável por criar o banco de dados e salvar as informações
+// Classe responsável por criar e gerenciar o banco de dados SQLite
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    // nome do banco
+    // Nome do banco
     private static final String NOME_BANCO = "appcontrole.db";
 
-    // versão do banco
+    // Versão do banco
     private static final int VERSAO = 1;
 
-    // construtor
+    // Construtor
     public DatabaseHelper(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
     }
 
-    // esse método roda automaticamente quando o banco é criado pela primeira vez
+    // Executado quando o banco é criado pela primeira vez
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        // tabela de usuários
+        // Tabela de usuários
         db.execSQL("CREATE TABLE usuarios (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome TEXT, " +
                 "email TEXT, " +
                 "senha TEXT)");
 
-        // tabela de times
+        // Tabela de times
         db.execSQL("CREATE TABLE times (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome TEXT, " +
                 "cidade TEXT, " +
                 "estado TEXT)");
 
-        // tabela de jogadores
+        // Tabela de jogadores
         db.execSQL("CREATE TABLE jogadores (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome TEXT, " +
                 "numero INTEGER, " +
                 "posicao TEXT)");
 
-        // tabela de jogos
+        // Tabela de jogos
         db.execSQL("CREATE TABLE jogos (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "adversario TEXT, " +
                 "data TEXT, " +
                 "local TEXT)");
 
-        // tabela financeira
+        // Tabela financeira
         db.execSQL("CREATE TABLE financeiro (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "descricao TEXT, " +
@@ -60,18 +60,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "tipo TEXT)");
     }
 
-    // esse método roda se a versão do banco mudar
+    // Executado quando a versão do banco muda
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        // apaga as tabelas antigas
+        // Remove as tabelas antigas
         db.execSQL("DROP TABLE IF EXISTS usuarios");
         db.execSQL("DROP TABLE IF EXISTS times");
         db.execSQL("DROP TABLE IF EXISTS jogadores");
         db.execSQL("DROP TABLE IF EXISTS jogos");
         db.execSQL("DROP TABLE IF EXISTS financeiro");
 
-        // cria tudo novamente
+        // Cria novamente
         onCreate(db);
     }
 
@@ -79,7 +79,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // USUÁRIOS
     // ==========================
 
-    // salva usuário no banco
     public boolean cadastrarUsuario(String nome, String email, String senha){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -94,7 +93,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado != -1;
     }
 
-    // verifica login
     public boolean validarLogin(String email, String senha){
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -104,14 +102,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{email, senha}
         );
 
-        return cursor.moveToFirst();
+        boolean existe = cursor.moveToFirst();
+
+        // Fecha o cursor após uso
+        cursor.close();
+
+        return existe;
     }
 
     // ==========================
     // TIMES
     // ==========================
 
-    // salva time no banco
     public boolean cadastrarTime(String nome, String cidade, String estado){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -126,7 +128,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado != -1;
     }
 
-    // busca lista de times
     public Cursor listarTimes(){
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM times", null);
@@ -136,7 +137,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // JOGADORES
     // ==========================
 
-    // salva jogador
     public boolean cadastrarJogador(String nome, int numero, String posicao){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -151,7 +151,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado != -1;
     }
 
-    // lista jogadores
     public Cursor listarJogadores(){
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM jogadores", null);
@@ -161,7 +160,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // JOGOS
     // ==========================
 
-    // salva jogo
     public boolean cadastrarJogo(String adversario, String data, String local){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -176,7 +174,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado != -1;
     }
 
-    // lista jogos
     public Cursor listarJogos(){
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM jogos", null);
@@ -186,7 +183,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // FINANCEIRO
     // ==========================
 
-    // salva lançamento financeiro
     public boolean salvarLancamento(String descricao, double valor, String tipo){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -201,7 +197,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado != -1;
     }
 
-    // lista lançamentos financeiros
     public Cursor listarFinanceiro(){
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM financeiro", null);

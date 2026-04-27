@@ -13,42 +13,56 @@ import com.example.appcontrolepro.database.DatabaseHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
-    // campos da tela
+    // Campos da tela
     EditText edtEmail, edtSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Define o layout da tela
         setContentView(R.layout.activity_login);
 
-        // conecta os campos do XML com o Java
+        // Liga os campos do XML às variáveis Java
         edtEmail = findViewById(R.id.edtEmail);
         edtSenha = findViewById(R.id.edtSenha);
     }
 
-    // método chamado ao clicar no botão entrar
+    // Método chamado ao clicar no botão "Entrar"
     public void fazerLogin(View view){
 
-        // pega o texto digitado
+        // Captura os dados digitados
         String email = edtEmail.getText().toString().trim();
         String senha = edtSenha.getText().toString().trim();
 
-        // cria conexão com o banco
+        // Verifica se os campos estão vazios
+        if(email.isEmpty() || senha.isEmpty()){
+            Toast.makeText(this, "Preencha email e senha", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Cria conexão com o banco
         DatabaseHelper db = new DatabaseHelper(this);
 
-        // verifica se o login existe
+        // Verifica se o login existe
         boolean loginValido = db.validarLogin(email, senha);
 
+        // Fecha o banco
+        db.close();
+
         if(loginValido){
-            // abre a próxima tela
+            // Abre a próxima tela
             Intent tela = new Intent(this, MainActivity.class);
             startActivity(tela);
+
+            // Fecha a tela de login
+            finish();
         }else{
             Toast.makeText(this, "Login inválido", Toast.LENGTH_SHORT).show();
         }
     }
 
-    // abre tela de cadastro
+    // Método chamado ao clicar no botão "Criar conta"
     public void abrirCadastro(View view){
         Intent tela = new Intent(this, CadastroUsuarioActivity.class);
         startActivity(tela);

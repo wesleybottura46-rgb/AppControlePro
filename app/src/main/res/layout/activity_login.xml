@@ -5,49 +5,51 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- título da tela -->
+    <!-- título -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"/>
 
-    <!-- campo para digitar email -->
+    <!-- email -->
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite seu email"
+        android:hint="@string/digite_email"
         android:inputType="textEmailAddress"
+        android:autofillHints="emailAddress"
         android:layout_marginBottom="16dp"/>
 
-    <!-- campo para digitar senha -->
+    <!-- senha -->
     <EditText
         android:id="@+id/edtSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite sua senha"
+        android:hint="@string/digite_senha"
         android:inputType="textPassword"
+        android:autofillHints="password"
         android:layout_marginBottom="20dp"/>
 
-    <!-- botão para entrar -->
+    <!-- botão entrar -->
     <Button
         android:id="@+id/btnEntrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrar"
+        android:text="@string/entrar"
         android:onClick="fazerLogin"
         android:layout_marginBottom="12dp"/>
 
-    <!-- botão para abrir cadastro -->
+    <!-- botão cadastro -->
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Criar conta"
+        android:text="@string/criar_conta"
         android:onClick="abrirCadastro"/>
 
 </LinearLayout>
