@@ -32,7 +32,7 @@ public class EscolherTimeActivity extends AppCompatActivity {
     }
 
     // ======================================================
-    // CARREGAR TIMES (TEMPO REAL)
+    // CARREGAR TIMES
     // ======================================================
     private void carregarTimes(){
 
@@ -68,7 +68,7 @@ public class EscolherTimeActivity extends AppCompatActivity {
     }
 
     // ======================================================
-    // BOTÃO ENTRAR NO TIME (CORRIGIDO)
+    // BOTÃO ENTRAR NO TIME
     // ======================================================
     public void entrarTime(View view){
 
@@ -81,23 +81,23 @@ public class EscolherTimeActivity extends AppCompatActivity {
 
         String timeId = ids.get(pos);
 
-        // 🔥 SALVA NA SESSÃO
+        // SALVA NA SESSÃO
         SessionManager.setTimeId(this, timeId);
 
-        // 🔥 VAI PARA MAIN
+        //VAI PARA MAIN
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     // ======================================================
-    // BOTÃO CRIAR TIME (CORRIGIDO)
+    // BOTÃO CRIAR TIME
     // ======================================================
     public void criarTime(View view){
         startActivity(new Intent(this, CadastroTimeActivity.class));
     }
 
     // ======================================================
-    // EXCLUIR TIME (MANTIDO IGUAL)
+    // EXCLUIR TIME
     // ======================================================
     public void excluirTime(View view){
 
@@ -165,7 +165,7 @@ public class EscolherTimeActivity extends AppCompatActivity {
     }
 
     // ==========================
-// ABRIR CADASTRO DE TIME (COMPATÍVEL COM XML)
+// ABRIR CADASTRO DE TIME
 // ==========================
     public void abrirCadastroTime(View view){
         startActivity(new Intent(this, CadastroTimeActivity.class));
