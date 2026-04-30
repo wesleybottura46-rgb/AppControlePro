@@ -1,16 +1,5 @@
 package com.example.appcontrolepro.models;
 
-// =========================================================
-// MODEL: JOGO
-// =========================================================
-// Representa um jogo cadastrado pelo usuario.
-//
-// Colecao no Firestore:
-// jogos
-//
-// Observacao:
-// placarNosso e placarAdversario podem ser null enquanto a sumula
-// ainda nao foi preenchida.
 public class Jogo {
 
     // ID do documento no Firestore.
