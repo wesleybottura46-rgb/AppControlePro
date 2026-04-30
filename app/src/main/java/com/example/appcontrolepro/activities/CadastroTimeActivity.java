@@ -53,10 +53,10 @@ public class CadastroTimeActivity extends AppCompatActivity {
                 .add(dados)
                 .addOnSuccessListener(doc -> {
 
-                    // 🔥 LIMPA CAMPO
+                    //LIMPA CAMPO
                     edtNomeTime.setText("");
 
-                    // 🔥 MENSAGEM DE SUCESSO
+                    // MENSAGEM DE SUCESSO
                     Toast.makeText(this,"Time cadastrado com sucesso",Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
