@@ -1,13 +1,5 @@
 package com.example.appcontrolepro.models;
 
-// =========================================================
-// MODEL: USUARIO
-// =========================================================
-// Representa dados basicos do usuario.
-//
-// Importante:
-// A senha nao deve ser salva no Firestore.
-// O Firebase Authentication ja cuida da senha com seguranca.
 public class Usuario {
 
     // UID do Firebase Auth.
