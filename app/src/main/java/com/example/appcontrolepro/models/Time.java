@@ -1,12 +1,5 @@
 package com.example.appcontrolepro.models;
 
-// =========================================================
-// MODEL: TIME
-// =========================================================
-// Representa um time cadastrado pelo usuario.
-//
-// Colecao no Firestore:
-// times
 public class Time {
 
     // ID do documento no Firestore.
