@@ -94,7 +94,7 @@ public class PerfilActivity extends AppCompatActivity {
 
     // ==========================
     // LOGOUT
-    // ==========================
+    // =========================
     public void logout(View view) {
 
         FirebaseHelper.getAuth().signOut();
