@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 // ======================================================
-// ADAPTER DE JOGOS (VERSÃO FINAL PROFISSIONAL)
+// ADAPTER DE JOGOS
 // ======================================================
 public class JogosAdapter extends RecyclerView.Adapter<JogosAdapter.ViewHolder>{
 
@@ -82,7 +82,7 @@ public class JogosAdapter extends RecyclerView.Adapter<JogosAdapter.ViewHolder>{
                 : "Editar Súmula";
 
         // ==========================
-        // CLIQUE → MENU
+        // CLIQUE - MENU
         // ==========================
         holder.itemView.setOnClickListener(v -> {
 
@@ -115,7 +115,7 @@ public class JogosAdapter extends RecyclerView.Adapter<JogosAdapter.ViewHolder>{
                         }
 
                         // ==========================
-                        // EXCLUIR JOGO (COM ROLLBACK)
+                        // EXCLUIR JOGO 
                         // ==========================
                         else{
 
@@ -148,7 +148,7 @@ public class JogosAdapter extends RecyclerView.Adapter<JogosAdapter.ViewHolder>{
                                             }
                                         }
 
-                                        // 🔥 EXCLUI JOGO
+                                        // EXCLUI JOGO
                                         FirebaseHelper.getFirestore()
                                                 .collection("jogos")
                                                 .document(jogoId)
@@ -171,7 +171,7 @@ public class JogosAdapter extends RecyclerView.Adapter<JogosAdapter.ViewHolder>{
     }
 
     // ==========================
-    // VIEW HOLDER
+    // VIEW 
     // ==========================
     static class ViewHolder extends RecyclerView.ViewHolder{
 
