@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
 
                     for (var doc : q) {
 
-                        // 🔥 cria novo map (IMPORTANTE)
+                        //cria novo map
                         Map<String, Object> jogador = new HashMap<>(doc.getData());
 
-                        // 🔥 adiciona ID corretamente
+                        // adiciona ID 
                         jogador.put("id", doc.getId());
 
                         listaJogadores.add(jogador);
@@ -135,17 +135,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // ==========================
-// LOGOUT COMPLETO
+// LOGOUT 
 // ==========================
     public void sair(View view){
 
-        // 🔥 limpa dados do app
+        // limpa dados do app
         SessionManager.limparSessao(this);
 
-        // 🔥 desloga do Firebase (ESSENCIAL)
+        // desloga do Firebase (ESSENCIAL)
         FirebaseHelper.getAuth().signOut();
 
-        // 🔥 vai para login
+        // vai para login
         Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
