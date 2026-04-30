@@ -35,11 +35,11 @@ public class LoginActivity extends AppCompatActivity {
 
         // 🔥 CORREÇÃO PRINCIPAL
         if (!manter) {
-            // ❌ se NÃO quer manter logado → desloga do Firebase
+            //se NÃO quer manter logado → desloga do Firebase
             FirebaseHelper.getAuth().signOut();
         }
 
-        // 🔥 só entra automático se marcou manter logado
+        // só entra automático se marcou manter logado
         if (manter && FirebaseHelper.getAuth().getCurrentUser() != null) {
             abrirEscolherTime();
         }
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 .signInWithEmailAndPassword(email, senha)
                 .addOnSuccessListener(auth -> {
 
-                    // 🔥 salva escolha do usuário
+                    // salva escolha do usuário
                     prefs.edit()
                             .putBoolean("manter", checkManterLogado.isChecked())
                             .apply();
