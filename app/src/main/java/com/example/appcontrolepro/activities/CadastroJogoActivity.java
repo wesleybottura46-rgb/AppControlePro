@@ -94,12 +94,12 @@ public class CadastroJogoActivity extends AppCompatActivity {
                 .add(dados)
                 .addOnSuccessListener(doc -> {
 
-                    // 🔥 LIMPA CAMPOS
+                    // LIMPA CAMPOS
                     edtAdversario.setText("");
                     edtData.setText("");
                     edtHora.setText("");
 
-                    // 🔥 MENSAGEM
+                    // MENSAGEM
                     Toast.makeText(this,"Jogo cadastrado com sucesso",Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
