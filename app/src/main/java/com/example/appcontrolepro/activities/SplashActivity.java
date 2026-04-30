@@ -11,7 +11,7 @@ import com.example.appcontrolepro.R;
 import com.example.appcontrolepro.database.FirebaseHelper;
 
 // =========================================================
-// SPLASH ACTIVITY
+// Tela com logo do app(Abre quando abre o app)
 // =========================================================
 public class SplashActivity extends AppCompatActivity {
 
@@ -22,14 +22,14 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
 
-            // 🔥 SE NÃO TEM USUÁRIO → LOGIN
+            // SE NÃO TEM USUÁRIO - LOGIN
             if (FirebaseHelper.getAuth().getCurrentUser() == null) {
 
                 startActivity(new Intent(this, LoginActivity.class));
 
             } else {
 
-                // 🔥 SE TEM USUÁRIO → ESCOLHER TIME
+                // SE TEM USUÁRIO - ESCOLHER TIME
                 startActivity(new Intent(this, EscolherTimeActivity.class));
             }
 
