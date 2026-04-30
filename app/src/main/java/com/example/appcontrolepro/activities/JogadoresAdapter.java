@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 // ======================================================
-// ADAPTER DE JOGADORES (SEM CRASH)
+// ADAPTER DE JOGADORES
 // ======================================================
 public class JogadoresAdapter extends RecyclerView.Adapter<JogadoresAdapter.ViewHolder>{
 
@@ -40,7 +40,7 @@ public class JogadoresAdapter extends RecyclerView.Adapter<JogadoresAdapter.View
 
         String nome = (String) jogador.get("nome");
 
-        // 🔥 PROTEÇÃO DO ID (EVITA CRASH)
+        // PROTEÇÃO DO ID (EVITA CRASH)
         Object idObj = jogador.get("id");
         if(idObj == null) return;
 
