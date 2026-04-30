@@ -5,14 +5,7 @@ import android.content.SharedPreferences;
 
 import com.example.appcontrolepro.models.Usuario;
 
-// =========================================================
-// SESSION MANAGER (VERSÃO FINAL CORRIGIDA)
-// =========================================================
-// Responsável por salvar dados da sessão do usuário.
-//
-// ✔ Usa SharedPreferences (dados persistem)
-// ✔ Evita bugs de navegação após logout
-//
+
 public class SessionManager {
 
     // =========================================================
@@ -32,7 +25,7 @@ public class SessionManager {
 
         SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
 
-        // 🔥 salva o id do time
+        //alva o id do time
         prefs.edit().putString(KEY_TIME_ID, id).apply();
     }
 
@@ -53,7 +46,7 @@ public class SessionManager {
 
         String timeId = getTimeId(context);
 
-        // 🔥 proteção contra null e vazio
+        //proteção contra null e vazio
         return timeId != null && !timeId.trim().isEmpty();
     }
 
@@ -64,10 +57,10 @@ public class SessionManager {
 
         SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
 
-        // 🔥 remove todos os dados salvos
+        // remove todos os dados salvos
         prefs.edit().clear().apply();
 
-        // 🔥 limpa também usuário em memória
+        // limpa também usuário em memória
         usuarioLogado = null;
     }
 
