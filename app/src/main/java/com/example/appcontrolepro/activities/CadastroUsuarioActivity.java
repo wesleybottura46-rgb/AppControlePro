@@ -34,7 +34,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         edtSenha = findViewById(R.id.edtSenhaCadastro);
         btnCadastrar = findViewById(R.id.btnCadastrarUsuario);
 
-        // Aqui usamos setOnClickListener em vez de android:onClick no XML.
+        // Aqui usa setOnClickListener em vez de android:onClick no XML.
         btnCadastrar.setOnClickListener(v -> cadastrar());
     }
 
