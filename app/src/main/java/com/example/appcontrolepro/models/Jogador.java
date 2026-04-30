@@ -1,16 +1,5 @@
 package com.example.appcontrolepro.models;
 
-// =========================================================
-// MODEL: JOGADOR
-// =========================================================
-// Um model representa o formato dos dados.
-//
-// Esta classe mostra como um jogador deve ser salvo/lido.
-// Mesmo que algumas telas usem Map<String, Object>, o model ajuda voce
-// a entender quais campos existem no documento "jogadores" do Firestore.
-//
-// Colecao no Firestore:
-// jogadores
 public class Jogador {
 
     // ID do documento no Firestore.
