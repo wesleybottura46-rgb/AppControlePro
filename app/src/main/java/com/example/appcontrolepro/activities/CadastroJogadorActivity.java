@@ -78,11 +78,11 @@ public class CadastroJogadorActivity extends AppCompatActivity {
                 .add(dados)
                 .addOnSuccessListener(doc -> {
 
-                    // 🔥 LIMPA CAMPOS
+                    //LIMPA CAMPOS
                     edtNome.setText("");
                     spinnerPosicao.setSelection(0);
 
-                    // 🔥 MENSAGEM
+                    //MENSAGEM
                     Toast.makeText(this,"Jogador cadastrado com sucesso",Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
