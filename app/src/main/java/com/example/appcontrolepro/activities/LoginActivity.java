@@ -1,113 +1,389 @@
+// DEFINE O PACOTE DO ARQUIVO
 package com.example.appcontrolepro.activities;
 
+// ======================================================
+// IMPORTAÇÕES
+// ======================================================
+
+// IMPORTA TELA PADRÃO
 import androidx.appcompat.app.AppCompatActivity;
 
+// IMPORTA TROCA DE TELAS
 import android.content.Intent;
+
+// IMPORTA SALVAMENTO LOCAL
 import android.content.SharedPreferences;
+
+// IMPORTA CICLO DA TELA
 import android.os.Bundle;
+
+// IMPORTA VIEW
 import android.view.View;
+
+// IMPORTA COMPONENTES VISUAIS
 import android.widget.*;
 
+// IMPORTA R DO PROJETO
 import com.example.appcontrolepro.R;
+
+// IMPORTA FIREBASE HELPER
 import com.example.appcontrolepro.database.FirebaseHelper;
 
-// ==============================
-// LOGIN
-// ==============================
+// ======================================================
+// TELA LOGIN
+// ======================================================
+//
+// ESSA TELA:
+//
+// ✔ FAZ LOGIN
+// ✔ RECUPERA SENHA
+// ✔ ABRE CADASTRO
+// ✔ MANTÉM LOGIN SALVO
+// ✔ ENTRA AUTOMATICAMENTE
+//
+// ======================================================
+
+// CRIA CLASSE LOGIN
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText edtEmail, edtSenha;
+    // ======================================================
+    // CAMPOS DA TELA
+    // ======================================================
+
+    // CAMPO EMAIL
+    private EditText edtEmail;
+
+    // CAMPO SENHA
+    private EditText edtSenha;
+
+    // CHECKBOX MANTER LOGADO
     private CheckBox checkManterLogado;
+
+    // ======================================================
+    // SHARED PREFERENCES
+    // ======================================================
+
+    // SALVA DADOS NO CELULAR
     private SharedPreferences prefs;
+
+    // ======================================================
+    // QUANDO A TELA ABRIR
+    // ======================================================
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // CHAMA MÉTODO PAI
         super.onCreate(savedInstanceState);
+
+        // LIGA XML NESSA TELA
         setContentView(R.layout.activity_login);
 
-        edtEmail = findViewById(R.id.edtEmailLogin);
-        edtSenha = findViewById(R.id.edtSenhaLogin);
-        checkManterLogado = findViewById(R.id.checkManterLogado);
+        // ======================================================
+        // CONECTA XML COM JAVA
+        // ======================================================
 
-        prefs = getSharedPreferences("login", MODE_PRIVATE);
+        // CAMPO EMAIL
+        edtEmail =
+                findViewById(R.id.edtEmailLogin);
 
-        boolean manter = prefs.getBoolean("manter", false);
+        // CAMPO SENHA
+        edtSenha =
+                findViewById(R.id.edtSenhaLogin);
 
-        // 🔥 CORREÇÃO PRINCIPAL
+        // CHECKBOX
+        checkManterLogado =
+                findViewById(R.id.checkManterLogado);
+
+        // ======================================================
+        // CRIA SHARED PREFERENCES
+        // ======================================================
+
+        prefs = getSharedPreferences(
+
+                // NOME DO ARQUIVO
+                "login",
+
+                // MODO PRIVADO
+                MODE_PRIVATE
+        );
+
+        // ======================================================
+        // PEGA VALOR SALVO
+        // ======================================================
+
+        // VERIFICA SE O USUÁRIO MARCOU
+        boolean manter =
+                prefs.getBoolean(
+
+                        // NOME DA CHAVE
+                        "manter",
+
+                        // VALOR PADRÃO
+                        false
+                );
+
+        // ======================================================
+        // VERIFICA SE NÃO QUER MANTER LOGADO
+        // ======================================================
+
         if (!manter) {
-            // ❌ se NÃO quer manter logado → desloga do Firebase
-            FirebaseHelper.getAuth().signOut();
+
+            // DESLOGA DO FIREBASE
+            FirebaseHelper
+                    .getAuth()
+                    .signOut();
         }
 
-        // 🔥 só entra automático se marcou manter logado
-        if (manter && FirebaseHelper.getAuth().getCurrentUser() != null) {
+        // ======================================================
+        // LOGIN AUTOMÁTICO
+        // ======================================================
+
+        // SE MARCOU MANTER LOGADO
+        // E EXISTE USUÁRIO
+        if (
+
+                manter
+
+                        &&
+
+                        FirebaseHelper
+                                .getAuth()
+                                .getCurrentUser() != null
+        ) {
+
+            // ABRE ESCOLHER TIME
             abrirEscolherTime();
         }
     }
 
-    // ==========================
-    // LOGIN
-    // ==========================
+    // ======================================================
+    // FAZER LOGIN
+    // ======================================================
+
     public void fazerLogin(View view) {
 
-        String email = edtEmail.getText().toString().trim();
-        String senha = edtSenha.getText().toString().trim();
+        // ======================================================
+        // PEGA EMAIL
+        // ======================================================
 
-        if (email.isEmpty() || senha.isEmpty()) {
-            Toast.makeText(this, "Preencha email e senha", Toast.LENGTH_SHORT).show();
+        String email =
+
+                edtEmail
+                        .getText()
+                        .toString()
+                        .trim();
+
+        // ======================================================
+        // PEGA SENHA
+        // ======================================================
+
+        String senha =
+
+                edtSenha
+                        .getText()
+                        .toString()
+                        .trim();
+
+        // ======================================================
+        // VERIFICA CAMPOS VAZIOS
+        // ======================================================
+
+        if (
+
+                email.isEmpty()
+
+                        ||
+
+                        senha.isEmpty()
+        ) {
+
+            // MOSTRA MENSAGEM
+            Toast.makeText(
+
+                    this,
+
+                    "Preencha email e senha",
+
+                    Toast.LENGTH_SHORT
+
+            ).show();
+
+            // PARA EXECUÇÃO
             return;
         }
 
+        // ======================================================
+        // LOGIN FIREBASE
+        // ======================================================
+
         FirebaseHelper.getAuth()
-                .signInWithEmailAndPassword(email, senha)
+
+                // FAZ LOGIN
+                .signInWithEmailAndPassword(
+
+                        email,
+
+                        senha
+                )
+
+                // SE DEU CERTO
                 .addOnSuccessListener(auth -> {
 
-                    // 🔥 salva escolha do usuário
+                    // ==========================================
+                    // SALVA ESCOLHA DO CHECKBOX
+                    // ==========================================
+
                     prefs.edit()
-                            .putBoolean("manter", checkManterLogado.isChecked())
+
+                            // SALVA TRUE OU FALSE
+                            .putBoolean(
+
+                                    "manter",
+
+                                    checkManterLogado.isChecked()
+                            )
+
+                            // SALVA
                             .apply();
+
+                    // ==========================================
+                    // ABRE ESCOLHER TIME
+                    // ==========================================
 
                     abrirEscolherTime();
                 })
+
+                // SE DEU ERRO
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+
+                        // MOSTRA ERRO
+                        Toast.makeText(
+
+                                this,
+
+                                "Erro: " + e.getMessage(),
+
+                                Toast.LENGTH_SHORT
+
+                        ).show()
                 );
     }
 
-    // ==========================
+    // ======================================================
     // RECUPERAR SENHA
-    // ==========================
+    // ======================================================
+
     public void recuperarSenha(View view) {
 
-        String email = edtEmail.getText().toString().trim();
+        // ======================================================
+        // PEGA EMAIL
+        // ======================================================
+
+        String email =
+
+                edtEmail
+                        .getText()
+                        .toString()
+                        .trim();
+
+        // ======================================================
+        // VERIFICA EMAIL VAZIO
+        // ======================================================
 
         if (email.isEmpty()) {
-            Toast.makeText(this, "Digite seu email", Toast.LENGTH_SHORT).show();
+
+            // MOSTRA MENSAGEM
+            Toast.makeText(
+
+                    this,
+
+                    "Digite seu email",
+
+                    Toast.LENGTH_SHORT
+
+            ).show();
+
+            // PARA EXECUÇÃO
             return;
         }
 
+        // ======================================================
+        // ENVIA EMAIL DE RECUPERAÇÃO
+        // ======================================================
+
         FirebaseHelper.getAuth()
+
+                // ENVIA EMAIL
                 .sendPasswordResetEmail(email)
+
+                // SE DEU CERTO
                 .addOnSuccessListener(v ->
-                        Toast.makeText(this, "Email enviado!", Toast.LENGTH_LONG).show()
+
+                        // MOSTRA MENSAGEM
+                        Toast.makeText(
+
+                                this,
+
+                                "Email enviado!",
+
+                                Toast.LENGTH_LONG
+
+                        ).show()
                 )
+
+                // SE DEU ERRO
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+
+                        // MOSTRA ERRO
+                        Toast.makeText(
+
+                                this,
+
+                                "Erro: " + e.getMessage(),
+
+                                Toast.LENGTH_SHORT
+
+                        ).show()
                 );
     }
 
-    // ==========================
+    // ======================================================
     // ABRIR CADASTRO
-    // ==========================
+    // ======================================================
+
     public void abrirCadastro(View view) {
-        startActivity(new Intent(this, CadastroUsuarioActivity.class));
+
+        // ABRE TELA CADASTRO
+        startActivity(
+
+                new Intent(
+
+                        this,
+
+                        CadastroUsuarioActivity.class
+                )
+        );
     }
 
-    // ==========================
-    // IR PARA ESCOLHER TIME
-    // ==========================
+    // ======================================================
+    // ABRIR ESCOLHER TIME
+    // ======================================================
+
     private void abrirEscolherTime() {
-        startActivity(new Intent(this, EscolherTimeActivity.class));
+
+        // ABRE TELA
+        startActivity(
+
+                new Intent(
+
+                        this,
+
+                        EscolherTimeActivity.class
+                )
+        );
+
+        // FECHA LOGIN
         finish();
     }
 }

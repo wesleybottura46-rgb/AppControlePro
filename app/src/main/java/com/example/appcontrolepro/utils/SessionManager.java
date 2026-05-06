@@ -1,86 +1,278 @@
+// DEFINE O PACOTE DO ARQUIVO
 package com.example.appcontrolepro.utils;
 
+// ======================================================
+// IMPORTAÇÕES
+// ======================================================
+
+// IMPORTA CONTEXT
 import android.content.Context;
+
+// IMPORTA SHARED PREFERENCES
 import android.content.SharedPreferences;
 
+// IMPORTA MODEL USUARIO
 import com.example.appcontrolepro.models.Usuario;
 
-// =========================================================
-// SESSION MANAGER (VERSÃO FINAL CORRIGIDA)
-// =========================================================
-// Responsável por salvar dados da sessão do usuário.
+// ======================================================
+// SESSION MANAGER
+// ======================================================
 //
-// ✔ Usa SharedPreferences (dados persistem)
-// ✔ Evita bugs de navegação após logout
+// ESSA CLASSE CONTROLA:
 //
+// ✔ SESSÃO DO USUÁRIO
+// ✔ TIME SELECIONADO
+// ✔ LOGIN
+// ✔ LOGOUT
+// ✔ DADOS SALVOS NO CELULAR
+//
+// ======================================================
+//
+// O QUE É SHARED PREFERENCES?
+//
+// É UMA MEMÓRIA PEQUENA
+// DO CELULAR PARA SALVAR:
+//
+// ✔ LOGIN
+// ✔ CONFIGURAÇÕES
+// ✔ IDS
+// ✔ DADOS SIMPLES
+//
+// ======================================================
+
+// CRIA CLASSE
 public class SessionManager {
 
-    // =========================================================
-    // NOME DO ARQUIVO DE ARMAZENAMENTO
-    // =========================================================
-    private static final String PREF_NAME = "APP_CONTROLE";
+    // ======================================================
+    // NOME DO ARQUIVO
+    // ======================================================
+    //
+    // NOME DO ARQUIVO SALVO NO CELULAR
+    //
+    // ======================================================
 
-    // =========================================================
+    // NOME DO ARQUIVO
+    private static final String PREF_NAME =
+            "APP_CONTROLE";
+
+    // ======================================================
     // CHAVES
-    // =========================================================
-    private static final String KEY_TIME_ID = "timeId";
+    // ======================================================
+    //
+    // CHAVES SÃO NOMES INTERNOS
+    // DOS DADOS SALVOS
+    //
+    // ======================================================
 
-    // =========================================================
-    // SALVAR TIME SELECIONADO
-    // =========================================================
-    public static void setTimeId(Context context, String id) {
+    // CHAVE DO TIME
+    private static final String KEY_TIME_ID =
+            "timeId";
 
-        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+    // ======================================================
+    // SALVAR TIME
+    // ======================================================
+    //
+    // SALVA O ID DO TIME
+    //
+    // ======================================================
 
-        // 🔥 salva o id do time
-        prefs.edit().putString(KEY_TIME_ID, id).apply();
+    public static void setTimeId(
+
+            Context context,
+
+            String id
+    ) {
+
+        // ==================================================
+        // ABRE SHARED PREFERENCES
+        // ==================================================
+
+        SharedPreferences prefs =
+
+                context.getSharedPreferences(
+
+                        PREF_NAME,
+
+                        Context.MODE_PRIVATE
+                );
+
+        // ==================================================
+        // SALVA ID DO TIME
+        // ==================================================
+
+        prefs.edit()
+
+                .putString(
+
+                        KEY_TIME_ID,
+
+                        id
+                )
+
+                .apply();
     }
 
-    // =========================================================
-    // RECUPERAR TIME
-    // =========================================================
-    public static String getTimeId(Context context) {
+    // ======================================================
+    // PEGAR TIME
+    // ======================================================
+    //
+    // RETORNA O ID DO TIME
+    //
+    // ======================================================
 
-        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+    public static String getTimeId(
 
-        return prefs.getString(KEY_TIME_ID, null);
+            Context context
+    ) {
+
+        // ==================================================
+        // ABRE SHARED PREFERENCES
+        // ==================================================
+
+        SharedPreferences prefs =
+
+                context.getSharedPreferences(
+
+                        PREF_NAME,
+
+                        Context.MODE_PRIVATE
+                );
+
+        // ==================================================
+        // RETORNA TIME ID
+        // ==================================================
+
+        return prefs.getString(
+
+                KEY_TIME_ID,
+
+                null
+        );
     }
 
-    // =========================================================
-    // VERIFICAR SE EXISTE TIME SALVO
-    // =========================================================
-    public static boolean temTimeSelecionado(Context context) {
+    // ======================================================
+    // VERIFICAR TIME
+    // ======================================================
+    //
+    // VERIFICA SE EXISTE
+    // UM TIME SELECIONADO
+    //
+    // ======================================================
 
-        String timeId = getTimeId(context);
+    public static boolean temTimeSelecionado(
 
-        // 🔥 proteção contra null e vazio
-        return timeId != null && !timeId.trim().isEmpty();
+            Context context
+    ) {
+
+        // ==================================================
+        // PEGA TIME ID
+        // ==================================================
+
+        String timeId =
+                getTimeId(context);
+
+        // ==================================================
+        // VERIFICA SE NÃO É NULO
+        // ==================================================
+
+        return
+
+                timeId != null
+
+                        &&
+
+                        !timeId.trim().isEmpty();
     }
 
-    // =========================================================
-    // LIMPAR SESSÃO COMPLETA (LOGOUT)
-    // =========================================================
-    public static void limparSessao(Context context) {
+    // ======================================================
+    // LIMPAR SESSÃO
+    // ======================================================
+    //
+    // USADO NO:
+    //
+    // ✔ LOGOUT
+    // ✔ TROCAR TIME
+    // ✔ EXCLUIR CONTA
+    //
+    // ======================================================
 
-        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+    public static void limparSessao(
 
-        // 🔥 remove todos os dados salvos
-        prefs.edit().clear().apply();
+            Context context
+    ) {
 
-        // 🔥 limpa também usuário em memória
+        // ==================================================
+        // ABRE SHARED PREFERENCES
+        // ==================================================
+
+        SharedPreferences prefs =
+
+                context.getSharedPreferences(
+
+                        PREF_NAME,
+
+                        Context.MODE_PRIVATE
+                );
+
+        // ==================================================
+        // REMOVE TODOS OS DADOS
+        // ==================================================
+
+        prefs.edit()
+
+                .clear()
+
+                .apply();
+
+        // ==================================================
+        // LIMPA USUÁRIO EM MEMÓRIA
+        // ==================================================
+
         usuarioLogado = null;
     }
 
-    // =========================================================
-    // USUÁRIO (APENAS EM MEMÓRIA)
-    // =========================================================
+    // ======================================================
+    // USUÁRIO LOGADO
+    // ======================================================
+    //
+    // ESSE USUÁRIO FICA APENAS
+    // NA MEMÓRIA DO APP
+    //
+    // NÃO FICA SALVO NO CELULAR
+    //
+    // ======================================================
+
+    // USUÁRIO EM MEMÓRIA
     private static Usuario usuarioLogado;
 
-    public static void setUsuarioLogado(Usuario usuario) {
+    // ======================================================
+    // SALVAR USUÁRIO
+    // ======================================================
+    //
+    // GUARDA USUÁRIO NA MEMÓRIA
+    //
+    // ======================================================
+
+    public static void setUsuarioLogado(
+
+            Usuario usuario
+    ) {
+
+        // SALVA USUÁRIO
         usuarioLogado = usuario;
     }
 
+    // ======================================================
+    // PEGAR USUÁRIO
+    // ======================================================
+    //
+    // RETORNA USUÁRIO DA MEMÓRIA
+    //
+    // ======================================================
+
     public static Usuario getUsuarioLogado() {
+
+        // RETORNA USUÁRIO
         return usuarioLogado;
     }
 }

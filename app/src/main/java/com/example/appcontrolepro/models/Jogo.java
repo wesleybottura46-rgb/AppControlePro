@@ -1,71 +1,357 @@
+// DEFINE O PACOTE DO ARQUIVO
 package com.example.appcontrolepro.models;
 
-// =========================================================
-// MODEL: JOGO
-// =========================================================
-// Representa um jogo cadastrado pelo usuario.
+// ======================================================
+// MODEL JOGO
+// ======================================================
 //
-// Colecao no Firestore:
+// UM MODEL É O "MOLDE" DOS DADOS.
+//
+// ESSA CLASSE REPRESENTA:
+//
+// ✔ UM JOGO
+// ✔ DATA DO JOGO
+// ✔ ADVERSÁRIO
+// ✔ LOCAL
+// ✔ PLACAR
+//
+// COLEÇÃO FIRESTORE:
+//
 // jogos
 //
-// Observacao:
-// placarNosso e placarAdversario podem ser null enquanto a sumula
-// ainda nao foi preenchida.
+// OBSERVAÇÃO:
+//
+// O PLACAR PODE COMEÇAR NULO,
+// PORQUE A SÚMULA AINDA NÃO FOI PREENCHIDA.
+//
+// ======================================================
+
+// CRIA CLASSE
 public class Jogo {
 
-    // ID do documento no Firestore.
+    // ======================================================
+    // ID
+    // ======================================================
+    //
+    // ID DO DOCUMENTO FIRESTORE
+    //
+    // ======================================================
+
+    // ID DO JOGO
     private String id;
 
-    // ID do time dono desse jogo.
+    // ======================================================
+    // TIME ID
+    // ======================================================
+    //
+    // ID DO TIME DONO DO JOGO
+    //
+    // ======================================================
+
+    // ID DO TIME
     private String timeId;
 
-    // Dados basicos do jogo.
+    // ======================================================
+    // DADOS DO JOGO
+    // ======================================================
+    //
+    // GUARDA:
+    //
+    // ✔ ADVERSÁRIO
+    // ✔ DATA
+    // ✔ HORA
+    // ✔ LOCAL
+    //
+    // ======================================================
+
+    // NOME DO ADVERSÁRIO
     private String adversario;
+
+    // DATA DO JOGO
     private String data;
+
+    // HORA DO JOGO
     private String hora;
+
+    // LOCAL DO JOGO
     private String local;
 
-    // Placar salvo pela SumulaActivity.
+    // ======================================================
+    // PLACAR
+    // ======================================================
+    //
+    // PLACAR SALVO PELA SÚMULA
+    //
+    // ======================================================
+
+    // GOLS DO NOSSO TIME
     private Long placarNosso;
+
+    // GOLS DO ADVERSÁRIO
     private Long placarAdversario;
 
-    // Construtor vazio obrigatorio para o Firebase.
+    // ======================================================
+    // CONSTRUTOR VAZIO
+    // ======================================================
+    //
+    // O FIREBASE PRECISA DESSE CONSTRUTOR
+    //
+    // ======================================================
+
+    // CONSTRUTOR VAZIO
     public Jogo() {
+
     }
 
-    // Construtor para criar jogo novo antes da sumula existir.
-    public Jogo(String timeId, String adversario, String data, String hora, String local) {
+    // ======================================================
+    // CONSTRUTOR COMPLETO
+    // ======================================================
+    //
+    // USADO PARA CRIAR NOVO JOGO
+    //
+    // ======================================================
+
+    // CONSTRUTOR
+    public Jogo(
+
+            String timeId,
+
+            String adversario,
+
+            String data,
+
+            String hora,
+
+            String local
+    ) {
+
+        // SALVA ID DO TIME
         this.timeId = timeId;
+
+        // SALVA ADVERSÁRIO
         this.adversario = adversario;
+
+        // SALVA DATA
         this.data = data;
+
+        // SALVA HORA
         this.hora = hora;
+
+        // SALVA LOCAL
         this.local = local;
+
+        // PLACAR COMEÇA NULO
         this.placarNosso = null;
+
+        // PLACAR COMEÇA NULO
         this.placarAdversario = null;
     }
 
-    // Getters e setters.
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    // ======================================================
+    // GET ID
+    // ======================================================
+    //
+    // RETORNA ID
+    //
+    // ======================================================
 
-    public String getTimeId() { return timeId; }
-    public void setTimeId(String timeId) { this.timeId = timeId; }
+    public String getId() {
 
-    public String getAdversario() { return adversario; }
-    public void setAdversario(String adversario) { this.adversario = adversario; }
+        return id;
+    }
 
-    public String getData() { return data; }
-    public void setData(String data) { this.data = data; }
+    // ======================================================
+    // SET ID
+    // ======================================================
+    //
+    // ALTERA ID
+    //
+    // ======================================================
 
-    public String getHora() { return hora; }
-    public void setHora(String hora) { this.hora = hora; }
+    public void setId(String id) {
 
-    public String getLocal() { return local; }
-    public void setLocal(String local) { this.local = local; }
+        this.id = id;
+    }
 
-    public Long getPlacarNosso() { return placarNosso; }
-    public void setPlacarNosso(Long placarNosso) { this.placarNosso = placarNosso; }
+    // ======================================================
+    // GET TIME ID
+    // ======================================================
+    //
+    // RETORNA ID DO TIME
+    //
+    // ======================================================
 
-    public Long getPlacarAdversario() { return placarAdversario; }
-    public void setPlacarAdversario(Long placarAdversario) { this.placarAdversario = placarAdversario; }
+    public String getTimeId() {
+
+        return timeId;
+    }
+
+    // ======================================================
+    // SET TIME ID
+    // ======================================================
+    //
+    // ALTERA ID DO TIME
+    //
+    // ======================================================
+
+    public void setTimeId(String timeId) {
+
+        this.timeId = timeId;
+    }
+
+    // ======================================================
+    // GET ADVERSÁRIO
+    // ======================================================
+    //
+    // RETORNA ADVERSÁRIO
+    //
+    // ======================================================
+
+    public String getAdversario() {
+
+        return adversario;
+    }
+
+    // ======================================================
+    // SET ADVERSÁRIO
+    // ======================================================
+    //
+    // ALTERA ADVERSÁRIO
+    //
+    // ======================================================
+
+    public void setAdversario(String adversario) {
+
+        this.adversario = adversario;
+    }
+
+    // ======================================================
+    // GET DATA
+    // ======================================================
+    //
+    // RETORNA DATA
+    //
+    // ======================================================
+
+    public String getData() {
+
+        return data;
+    }
+
+    // ======================================================
+    // SET DATA
+    // ======================================================
+    //
+    // ALTERA DATA
+    //
+    // ======================================================
+
+    public void setData(String data) {
+
+        this.data = data;
+    }
+
+    // ======================================================
+    // GET HORA
+    // ======================================================
+    //
+    // RETORNA HORA
+    //
+    // ======================================================
+
+    public String getHora() {
+
+        return hora;
+    }
+
+    // ======================================================
+    // SET HORA
+    // ======================================================
+    //
+    // ALTERA HORA
+    //
+    // ======================================================
+
+    public void setHora(String hora) {
+
+        this.hora = hora;
+    }
+
+    // ======================================================
+    // GET LOCAL
+    // ======================================================
+    //
+    // RETORNA LOCAL
+    //
+    // ======================================================
+
+    public String getLocal() {
+
+        return local;
+    }
+
+    // ======================================================
+    // SET LOCAL
+    // ======================================================
+    //
+    // ALTERA LOCAL
+    //
+    // ======================================================
+
+    public void setLocal(String local) {
+
+        this.local = local;
+    }
+
+    // ======================================================
+    // GET PLACAR NOSSO
+    // ======================================================
+    //
+    // RETORNA GOLS NOSSO TIME
+    //
+    // ======================================================
+
+    public Long getPlacarNosso() {
+
+        return placarNosso;
+    }
+
+    // ======================================================
+    // SET PLACAR NOSSO
+    // ======================================================
+    //
+    // ALTERA GOLS NOSSO TIME
+    //
+    // ======================================================
+
+    public void setPlacarNosso(Long placarNosso) {
+
+        this.placarNosso = placarNosso;
+    }
+
+    // ======================================================
+    // GET PLACAR ADVERSÁRIO
+    // ======================================================
+    //
+    // RETORNA GOLS ADVERSÁRIO
+    //
+    // ======================================================
+
+    public Long getPlacarAdversario() {
+
+        return placarAdversario;
+    }
+
+    // ======================================================
+    // SET PLACAR ADVERSÁRIO
+    // ======================================================
+    //
+    // ALTERA GOLS ADVERSÁRIO
+    //
+    // ======================================================
+
+    public void setPlacarAdversario(Long placarAdversario) {
+
+        this.placarAdversario = placarAdversario;
+    }
 }

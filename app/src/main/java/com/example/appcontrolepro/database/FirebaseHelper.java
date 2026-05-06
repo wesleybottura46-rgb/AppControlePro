@@ -1,46 +1,141 @@
+// DEFINE O PACOTE DO ARQUIVO
 package com.example.appcontrolepro.database;
 
+// ======================================================
+// IMPORTAÇÕES
+// ======================================================
+
+// IMPORTA FIREBASE AUTH
 import com.google.firebase.auth.FirebaseAuth;
+
+// IMPORTA FIRESTORE
 import com.google.firebase.firestore.FirebaseFirestore;
+
+// IMPORTA STORAGE
 import com.google.firebase.storage.FirebaseStorage;
 
-// =========================================================
+// ======================================================
 // FIREBASE HELPER
-// =========================================================
-// Esta classe e um "atalho" para acessar os servicos do Firebase.
+// ======================================================
 //
-// Por que ela existe?
-// - Para evitar repetir FirebaseAuth.getInstance() em varias telas.
-// - Para deixar o codigo das Activities mais limpo.
-// - Para centralizar Auth, Firestore e Storage em um unico lugar.
+// ESSA CLASSE É UM "ATALHO"
 //
-// Servicos usados:
-// - FirebaseAuth: login, cadastro, logout e senha.
-// - FirebaseFirestore: banco de dados do app.
-// - FirebaseStorage: upload do emblema do time.
+// ELA SERVE PARA:
+//
+// ✔ LOGIN
+// ✔ CADASTRO
+// ✔ BANCO DE DADOS
+// ✔ STORAGE
+// ✔ PEGAR ID DO USUÁRIO
+//
+// ASSIM NÃO PRECISA REPETIR
+// FIREBASEAUTH.GETINSTANCE()
+// EM TODAS AS TELAS.
+//
+// ======================================================
+
+// CRIA CLASSE
 public class FirebaseHelper {
 
-    // Retorna o servico de autenticacao do Firebase.
+    // ======================================================
+    // FIREBASE AUTH
+    // ======================================================
+    //
+    // RESPONSÁVEL POR:
+    //
+    // ✔ LOGIN
+    // ✔ CADASTRO
+    // ✔ LOGOUT
+    // ✔ RECUPERAR SENHA
+    //
+    // ======================================================
+
+    // MÉTODO PÚBLICO
     public static FirebaseAuth getAuth() {
+
+        // RETORNA FIREBASE AUTH
         return FirebaseAuth.getInstance();
     }
 
-    // Retorna o banco Firestore.
+    // ======================================================
+    // FIRESTORE
+    // ======================================================
+    //
+    // RESPONSÁVEL PELO:
+    //
+    // ✔ BANCO DE DADOS
+    // ✔ JOGADORES
+    // ✔ JOGOS
+    // ✔ FINANCEIRO
+    // ✔ TIMES
+    //
+    // ======================================================
+
+    // MÉTODO PÚBLICO
     public static FirebaseFirestore getFirestore() {
+
+        // RETORNA FIRESTORE
         return FirebaseFirestore.getInstance();
     }
 
-    // Retorna o Storage, usado para salvar imagens.
+    // ======================================================
+    // STORAGE
+    // ======================================================
+    //
+    // RESPONSÁVEL POR:
+    //
+    // ✔ SALVAR IMAGENS
+    // ✔ EMBLEMAS
+    // ✔ FOTOS
+    //
+    // ======================================================
+
+    // MÉTODO PÚBLICO
     public static FirebaseStorage getStorage() {
+
+        // RETORNA STORAGE
         return FirebaseStorage.getInstance();
     }
 
-    // Retorna o UID do usuario logado.
-    // Se nao tiver usuario logado, retorna null.
+    // ======================================================
+    // PEGAR ID DO USUÁRIO
+    // ======================================================
+    //
+    // ESSE MÉTODO:
+    //
+    // ✔ PEGA O UID
+    // ✔ IDENTIFICA USUÁRIO
+    // ✔ RETORNA NULL SE NÃO TIVER LOGIN
+    //
+    // ======================================================
+
+    // MÉTODO PÚBLICO
     public static String getUsuarioIdAtual() {
-        if (getAuth().getCurrentUser() == null) {
+
+        // ==================================================
+        // VERIFICA SE TEM USUÁRIO
+        // ==================================================
+
+        if (
+
+                getAuth()
+                        .getCurrentUser()
+
+                        == null
+        ) {
+
+            // RETORNA NULO
             return null;
         }
-        return getAuth().getCurrentUser().getUid();
+
+        // ==================================================
+        // RETORNA UID
+        // ==================================================
+
+        return getAuth()
+
+                .getCurrentUser()
+
+                .getUid();
     }
 }

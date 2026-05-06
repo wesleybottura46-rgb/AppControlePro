@@ -3,8 +3,9 @@
 <!-- ===================================================== -->
 <!-- CARD JOGADOR -->
 <!-- ===================================================== -->
-<!-- TAMANHO AJUSTADO -->
-<!-- MAIS PARECIDO COM CARD DOS JOGOS -->
+<!-- VERSÃO FINAL -->
+<!-- COM ESCUDO DO TIME -->
+<!-- PADRÃO JOGUEIROS -->
 <!-- ===================================================== -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,17 +18,21 @@
     android:elevation="2dp">
 
     <!-- ================================================= -->
-    <!-- ESCUDO -->
+    <!-- ESCUDO DO TIME -->
     <!-- ================================================= -->
+
     <ImageView
+        android:id="@+id/imgTimeJogador"
         android:layout_width="46dp"
         android:layout_height="46dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_vertical"/>
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
 
     <!-- ================================================= -->
-    <!-- NOME -->
+    <!-- NOME E POSIÇÃO -->
     <!-- ================================================= -->
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,7 +41,10 @@
         android:layout_marginStart="10dp"
         android:gravity="center_vertical">
 
+        <!-- ================================================= -->
         <!-- NOME -->
+        <!-- ================================================= -->
+
         <TextView
             android:id="@+id/txtNome"
             android:layout_width="wrap_content"
@@ -44,9 +52,12 @@
             android:text="Jogador"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="#222222"/>
+            android:textColor="#222222" />
 
+        <!-- ================================================= -->
         <!-- POSIÇÃO -->
+        <!-- ================================================= -->
+
         <TextView
             android:id="@+id/txtPosicao"
             android:layout_width="wrap_content"
@@ -54,19 +65,24 @@
             android:text="Jogador"
             android:textSize="13sp"
             android:textStyle="bold"
-            android:textColor="#B0B0B0"/>
+            android:textColor="#B0B0B0" />
+
     </LinearLayout>
 
     <!-- ================================================= -->
     <!-- ESTATÍSTICAS -->
     <!-- ================================================= -->
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
+        <!-- ================================================= -->
         <!-- JOGOS -->
+        <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +96,7 @@
                 android:text="Jogos"
                 android:textColor="#B0B0B0"
                 android:textStyle="bold"
-                android:textSize="11sp"/>
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/txtJogos"
@@ -89,10 +105,14 @@
                 android:text="0"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#222222"/>
+                android:textColor="#222222" />
+
         </LinearLayout>
 
-        <!-- ASSIST -->
+        <!-- ================================================= -->
+        <!-- ASSISTÊNCIAS -->
+        <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,7 +126,7 @@
                 android:text="Assist."
                 android:textColor="#B0B0B0"
                 android:textStyle="bold"
-                android:textSize="11sp"/>
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/txtAssist"
@@ -115,10 +135,14 @@
                 android:text="0"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#222222"/>
+                android:textColor="#222222" />
+
         </LinearLayout>
 
+        <!-- ================================================= -->
         <!-- GOLS -->
+        <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +155,7 @@
                 android:text="Gols"
                 android:textColor="#B0B0B0"
                 android:textStyle="bold"
-                android:textSize="11sp"/>
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/txtGols"
@@ -140,7 +164,8 @@
                 android:text="0"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#222222"/>
+                android:textColor="#222222" />
+
         </LinearLayout>
 
     </LinearLayout>

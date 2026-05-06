@@ -9,59 +9,106 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppControlePro">
-
-        <!-- =========================
+        <activity
+            android:name=".activities.ConfiguracaoFinanceiroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RelatoriosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NovaMovimentacaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CaixaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MensalidadesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FinanceiroActivity"
+            android:exported="false" />
+        <!--
+         =========================
              SPLASH (INICIAL)
-        ========================= -->
+        =========================
+        -->
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true">
-
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- =========================
+        <!--
+ =========================
              LOGIN / CADASTRO
-        ========================= -->
-        <activity android:name=".activities.LoginActivity" android:exported="false"/>
-        <activity android:name=".activities.CadastroUsuarioActivity" android:exported="false"/>
-        <activity android:name=".activities.CadastroTimeActivity" android:exported="false"/>
-
-        <!-- =========================
+        =========================
+        -->
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CadastroUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CadastroTimeActivity"
+            android:exported="false" />
+        <!--
+ =========================
              ESCOLHER TIME
-        ========================= -->
-        <activity android:name=".activities.EscolherTimeActivity" android:exported="false"/>
-
-        <!-- =========================
+        =========================
+        -->
+        <activity
+            android:name=".activities.EscolherTimeActivity"
+            android:exported="false" />
+        <!--
+ =========================
              MAIN
-        ========================= -->
-        <activity android:name=".activities.MainActivity" android:exported="false"/>
-
-        <!-- =========================
+        =========================
+        -->
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false" />
+        <!--
+ =========================
              JOGADORES
-        ========================= -->
-        <activity android:name=".activities.CadastroJogadorActivity" android:exported="false"/>
-
-        <!-- =========================
+        =========================
+        -->
+        <activity
+            android:name=".activities.CadastroJogadorActivity"
+            android:exported="false" />
+        <!--
+ =========================
              JOGOS
-        ========================= -->
-        <activity android:name=".activities.CadastroJogoActivity" android:exported="false"/>
-        <activity android:name=".activities.EditarJogoActivity" android:exported="false"/>
-        <activity android:name=".activities.SumulaActivity" android:exported="false"/>
-
-        <!-- =========================
+        =========================
+        -->
+        <activity
+            android:name=".activities.CadastroJogoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EditarJogoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SumulaActivity"
+            android:exported="false" />
+        <!--
+ =========================
              TIME
-        ========================= -->
-        <activity android:name=".activities.EditarTimeActivity" android:exported="false"/>
-
-        <!-- =========================
+        =========================
+        -->
+        <activity
+            android:name=".activities.EditarTimeActivity"
+            android:exported="false" />
+        <!--
+ =========================
              PERFIL
-        ========================= -->
-        <activity android:name=".activities.PerfilActivity" android:exported="false"/>
-
+        =========================
+        -->
+        <activity
+            android:name=".activities.PerfilActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

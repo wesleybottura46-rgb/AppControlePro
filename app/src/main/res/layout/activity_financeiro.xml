@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- ========================================== -->
+    <!-- CONTAINER PRINCIPAL -->
+    <!-- ========================================== -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+
+        android:padding="16dp">
+
+        <!-- ========================================== -->
+        <!-- TÍTULO -->
+        <!-- ========================================== -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Financeiro"
+
+            android:textSize="28sp"
+
+            android:textStyle="bold"
+
+            android:textColor="#000000"/>
+
+        <!-- ========================================== -->
+        <!-- SUBTÍTULO -->
+        <!-- ========================================== -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Controle financeiro do time"
+
+            android:textSize="16sp"
+
+            android:textColor="#666666"
+
+            android:layout_marginBottom="20dp"/>
+
+        <!-- ========================================== -->
+        <!-- CARD ARRECADADO -->
+        <!-- ========================================== -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+
+            android:orientation="vertical"
+
+            android:padding="16dp"
+
+            android:background="#FFFFFF"
+
+            android:elevation="3dp"
+
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Arrecadado no mês"
+
+                android:textColor="#666666"
+
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/txtArrecadado"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:text="R$ 0,00"
+
+                android:textSize="30sp"
+
+                android:textStyle="bold"
+
+                android:textColor="#2E7D32"
+
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- CARD PENDENTES -->
+        <!-- ========================================== -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+
+            android:orientation="vertical"
+
+            android:padding="16dp"
+
+            android:background="#FFFFFF"
+
+            android:elevation="3dp"
+
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Mensalidades pendentes"
+
+                android:textColor="#666666"
+
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/txtPendentes"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:text="0 jogadores"
+
+                android:textSize="30sp"
+
+                android:textStyle="bold"
+
+                android:textColor="#D32F2F"
+
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- CARD CAIXA -->
+        <!-- ========================================== -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+
+            android:orientation="vertical"
+
+            android:padding="16dp"
+
+            android:background="#FFFFFF"
+
+            android:elevation="3dp"
+
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Saldo em caixa"
+
+                android:textColor="#666666"
+
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/txtCaixa"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:text="R$ 0,00"
+
+                android:textSize="30sp"
+
+                android:textStyle="bold"
+
+                android:textColor="#1565C0"
+
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+        <!-- ========================================== -->
+        <!-- BOTÃO MENSALIDADES -->
+        <!-- ========================================== -->
+
+        <Button
+            android:id="@+id/btnMensalidades"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="55dp"
+
+            android:text="Mensalidades"
+
+            android:textAllCaps="false"
+
+            android:textSize="18sp"
+
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ========================================== -->
+        <!-- BOTÃO CAIXA -->
+        <!-- ========================================== -->
+
+        <Button
+            android:id="@+id/btnCaixa"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="55dp"
+
+            android:text="Caixa do Time"
+
+            android:textAllCaps="false"
+
+            android:textSize="18sp"
+
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ========================================== -->
+        <!-- BOTÃO RELATÓRIOS -->
+        <!-- ========================================== -->
+
+        <Button
+            android:id="@+id/btnRelatorios"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="55dp"
+
+            android:text="Relatórios - Em Desenvolvimento"
+
+            android:textAllCaps="false"
+
+            android:textSize="18sp"/>
+
+        <!-- ========================================== -->
+        <!-- BOTÃO CONFIGURAÇÕES -->
+        <!-- ========================================== -->
+
+        <Button
+            android:id="@+id/btnConfiguracoes"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="55dp"
+
+            android:text="Em Desenvolvimento"
+
+            android:textAllCaps="false"
+
+            android:textSize="18sp"
+
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

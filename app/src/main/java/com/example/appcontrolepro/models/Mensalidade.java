@@ -2,71 +2,86 @@
 package com.example.appcontrolepro.models;
 
 // ======================================================
-// MODEL USUARIO
+// MODEL MENSALIDADE
 // ======================================================
 //
 // UM MODEL É O "MOLDE" DOS DADOS.
 //
 // ESSA CLASSE REPRESENTA:
 //
-// ✔ USUÁRIO DO APP
-// ✔ NOME
-// ✔ EMAIL
-// ✔ ID DO FIREBASE
+// ✔ MENSALIDADE DO JOGADOR
+// ✔ MÊS DA MENSALIDADE
+// ✔ VALOR PAGO
+// ✔ STATUS
 //
-// IMPORTANTE:
+// USADA NA:
 //
-// A SENHA NÃO FICA AQUI.
-//
-// O FIREBASE AUTHENTICATION
-// JÁ CUIDA DA SENHA COM SEGURANÇA.
+// ✔ TELA MENSALIDADES
+// ✔ RELATÓRIOS
+// ✔ FINANCEIRO
 //
 // ======================================================
 
 // CRIA CLASSE
-public class Usuario {
+public class Mensalidade {
 
     // ======================================================
     // ID
     // ======================================================
     //
-    // UID DO FIREBASE AUTH
-    //
-    // EXEMPLO:
-    // x8f92kd93jd
+    // ID DO DOCUMENTO FIRESTORE
     //
     // ======================================================
 
-    // ID DO USUÁRIO
+    // ID
     private String id;
 
     // ======================================================
-    // DADOS DO USUÁRIO
+    // NOME
     // ======================================================
     //
-    // GUARDA:
-    //
-    // ✔ NOME
-    // ✔ EMAIL
+    // NOME DO JOGADOR
     //
     // ======================================================
 
-    // NOME DO USUÁRIO
+    // NOME
     private String nome;
 
-    // EMAIL DO USUÁRIO
-    private String email;
+    // ======================================================
+    // MÊS
+    // ======================================================
+    //
+    // GUARDA O MÊS
+    //
+    // EXEMPLO:
+    // Maio_2026
+    //
+    // ======================================================
+
+    // MÊS
+    private String mes;
+
+    // ======================================================
+    // VALOR PAGO
+    // ======================================================
+    //
+    // GUARDA O TOTAL PAGO
+    //
+    // ======================================================
+
+    // VALOR PAGO
+    private double valorPago;
 
     // ======================================================
     // CONSTRUTOR VAZIO
     // ======================================================
     //
-    // O FIREBASE PRECISA DESSE CONSTRUTOR
+    // FIREBASE PRECISA DESSE CONSTRUTOR
     //
     // ======================================================
 
     // CONSTRUTOR VAZIO
-    public Usuario() {
+    public Mensalidade() {
 
     }
 
@@ -74,18 +89,20 @@ public class Usuario {
     // CONSTRUTOR COMPLETO
     // ======================================================
     //
-    // USADO PARA CRIAR USUÁRIO
+    // USADO PARA CRIAR MENSALIDADE
     //
     // ======================================================
 
     // CONSTRUTOR
-    public Usuario(
+    public Mensalidade(
 
             String id,
 
             String nome,
 
-            String email
+            String mes,
+
+            double valorPago
     ) {
 
         // SALVA ID
@@ -94,8 +111,11 @@ public class Usuario {
         // SALVA NOME
         this.nome = nome;
 
-        // SALVA EMAIL
-        this.email = email;
+        // SALVA MÊS
+        this.mes = mes;
+
+        // SALVA VALOR
+        this.valorPago = valorPago;
     }
 
     // ======================================================
@@ -112,19 +132,6 @@ public class Usuario {
     }
 
     // ======================================================
-    // SET ID
-    // ======================================================
-    //
-    // ALTERA ID
-    //
-    // ======================================================
-
-    public void setId(String id) {
-
-        this.id = id;
-    }
-
-    // ======================================================
     // GET NOME
     // ======================================================
     //
@@ -138,41 +145,72 @@ public class Usuario {
     }
 
     // ======================================================
-    // SET NOME
+    // GET MÊS
     // ======================================================
     //
-    // ALTERA NOME
+    // RETORNA MÊS
     //
     // ======================================================
 
-    public void setNome(String nome) {
+    public String getMes() {
 
-        this.nome = nome;
+        return mes;
     }
 
     // ======================================================
-    // GET EMAIL
+    // GET VALOR PAGO
     // ======================================================
     //
-    // RETORNA EMAIL
+    // RETORNA VALOR PAGO
     //
     // ======================================================
 
-    public String getEmail() {
+    public double getValorPago() {
 
-        return email;
+        return valorPago;
     }
 
     // ======================================================
-    // SET EMAIL
+    // SET VALOR PAGO
     // ======================================================
     //
-    // ALTERA EMAIL
+    // ALTERA VALOR PAGO
     //
     // ======================================================
 
-    public void setEmail(String email) {
+    public void setValorPago(double valorPago) {
 
-        this.email = email;
+        this.valorPago = valorPago;
+    }
+
+    // ======================================================
+    // GET STATUS
+    // ======================================================
+    //
+    // VERIFICA:
+    //
+    // ✔ SE PAGOU
+    // ✔ OU SE ESTÁ PENDENTE
+    //
+    // ======================================================
+
+    public String getStatus(){
+
+        // ==================================================
+        // SE PAGOU
+        // ==================================================
+
+        if(valorPago > 0){
+
+            // RETORNA PAGO
+            return "Pago";
+        }
+
+        // ==================================================
+        // SE NÃO PAGOU
+        // ==================================================
+
+        // RETORNA PENDENTE
+        return "Pendente";
     }
 }

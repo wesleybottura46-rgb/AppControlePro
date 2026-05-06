@@ -1,55 +1,88 @@
+// DEFINE O PACOTE DO ARQUIVO
 package com.example.appcontrolepro.activities;
 
-// IMPORTA CONTEXTO
+// ======================================================
+// IMPORTAÇÕES
+// ======================================================
+
+// IMPORTA CONTEXTO DA TELA
 import android.content.Context;
 
-// IMPORTA VIEWS
+// IMPORTA INFLADOR DE XML
 import android.view.LayoutInflater;
+
+// IMPORTA VIEW
 import android.view.View;
+
+// IMPORTA GRUPO DE VIEWS
 import android.view.ViewGroup;
 
-// IMPORTA COMPONENTES
+// IMPORTA BOTÃO
 import android.widget.Button;
+
+// IMPORTA CHECKBOX
 import android.widget.CheckBox;
+
+// IMPORTA TEXTO
 import android.widget.TextView;
 
 // IMPORTA RECYCLER VIEW
 import androidx.recyclerview.widget.RecyclerView;
 
-// IMPORTA R
+// IMPORTA R DO PROJETO
 import com.example.appcontrolepro.R;
 
-// IMPORTA LISTAS
+// IMPORTA LISTA
 import java.util.List;
+
+// IMPORTA MAPA
 import java.util.Map;
 
 // ======================================================
 // ADAPTER DA SÚMULA
 // ======================================================
 //
-// RESPONSÁVEL POR:
+// ESSE ADAPTER:
 //
-// ✔ MOSTRAR JOGADORES
-// ✔ MARCAR QUEM JOGOU
-// ✔ CONTROLAR GOLS
-// ✔ CONTROLAR ASSISTÊNCIAS
-// ✔ LIMITAR PELO PLACAR
+// ✔ MOSTRA OS JOGADORES
+// ✔ MARCA QUEM JOGOU
+// ✔ CONTROLA GOLS
+// ✔ CONTROLA ASSISTÊNCIAS
+// ✔ LIMITA PELO PLACAR
 //
 // ======================================================
+
+// CRIA A CLASSE DO ADAPTER
 public class JogadorSumulaAdapter
+
+        // HERDA DO RECYCLER VIEW
         extends RecyclerView.Adapter<JogadorSumulaAdapter.ViewHolder>{
 
+    // ======================================================
     // CONTEXTO
+    // ======================================================
+
+    // GUARDA A TELA
     Context context;
 
-    // LISTA DOS JOGADORES
+    // ======================================================
+    // LISTA
+    // ======================================================
+
+    // GUARDA LISTA DOS JOGADORES
     List<Map<String,Object>> lista;
 
     // ======================================================
     // CONSTRUTOR
     // ======================================================
+
+    // MÉTODO CHAMADO AO CRIAR O ADAPTER
     public JogadorSumulaAdapter(
+
+            // RECEBE CONTEXTO
             Context context,
+
+            // RECEBE LISTA
             List<Map<String,Object>> lista
     ){
 
@@ -61,19 +94,35 @@ public class JogadorSumulaAdapter
     }
 
     // ======================================================
-    // CRIA ITEM
+    // CRIA ITEM DA LISTA
     // ======================================================
+
     @Override
     public ViewHolder onCreateViewHolder(
+
+            // VIEW PAI
             ViewGroup parent,
+
+            // TIPO DA VIEW
             int viewType
     ){
 
-        // ABRE XML DA SÚMULA
-        View view = LayoutInflater.from(parent.getContext())
+        // ABRE O XML DO ITEM
+        View view = LayoutInflater
+
+                // PEGA CONTEXTO
+                .from(parent.getContext())
+
+                // INFLA XML
                 .inflate(
+
+                        // XML DO ITEM
                         R.layout.item_sumula_jogador,
+
+                        // VIEW PAI
                         parent,
+
+                        // NÃO ANEXA AUTOMATICAMENTE
                         false
                 );
 
@@ -82,81 +131,136 @@ public class JogadorSumulaAdapter
     }
 
     // ======================================================
-    // MOSTRA DADOS
+    // DEFINE DADOS DO ITEM
     // ======================================================
+
     @Override
     public void onBindViewHolder(
+
+            // HOLDER
             ViewHolder holder,
+
+            // POSIÇÃO
             int position
     ){
 
+        // ==================================================
         // PEGA JOGADOR
-        Map<String,Object> jogador = lista.get(position);
+        // ==================================================
 
+        // PEGA O JOGADOR DA POSIÇÃO
+        Map<String,Object> jogador =
+                lista.get(position);
+
+        // ==================================================
         // PEGA NOME
-        String nome = (String) jogador.get("nome");
+        // ==================================================
 
+        // PEGA NOME DO JOGADOR
+        String nome =
+                (String) jogador.get("nome");
+
+        // ==================================================
         // MOSTRA NOME
+        // ==================================================
+
+        // COLOCA NOME NO CHECKBOX
         holder.checkJogou.setText(nome);
 
         // ==================================================
         // PEGA GOLS
         // ==================================================
+
+        // ARRAY FINAL PARA PODER ALTERAR
         final int[] gols = {
 
+                // VERIFICA SE EXISTE GOLS
                 jogador.containsKey("golsPartida")
+
+                        // PEGA VALOR
                         ? ((Number) jogador.get("golsPartida")).intValue()
+
+                        // SENÃO ZERO
                         : 0
         };
 
         // ==================================================
         // PEGA ASSISTÊNCIAS
         // ==================================================
+
+        // ARRAY FINAL PARA PODER ALTERAR
         final int[] assist = {
 
+                // VERIFICA SE EXISTE ASSISTÊNCIAS
                 jogador.containsKey("assistPartida")
+
+                        // PEGA VALOR
                         ? ((Number) jogador.get("assistPartida")).intValue()
+
+                        // SENÃO ZERO
                         : 0
         };
 
         // ==================================================
         // MOSTRA GOLS
         // ==================================================
+
+        // MOSTRA QUANTIDADE DE GOLS
         holder.txtGols.setText(
+
+                // CONVERTE PARA TEXTO
                 String.valueOf(gols[0])
         );
 
         // ==================================================
         // MOSTRA ASSISTÊNCIAS
         // ==================================================
+
+        // MOSTRA QUANTIDADE DE ASSISTÊNCIAS
         holder.txtAssist.setText(
+
+                // CONVERTE PARA TEXTO
                 String.valueOf(assist[0])
         );
 
         // ==================================================
         // REMOVE LISTENER ANTIGO
         // ==================================================
+
+        // EVITA BUG DE RECYCLER VIEW
         holder.checkJogou.setOnCheckedChangeListener(null);
 
         // ==================================================
         // DEFINE ESTADO DO CHECKBOX
         // ==================================================
+
+        // DEFINE SE ESTÁ MARCADO
         holder.checkJogou.setChecked(
 
+                // VERIFICA SE EXISTE CHAVE
                 jogador.containsKey("jogou")
+
+                        // VERIFICA SE É TRUE
                         && (boolean) jogador.get("jogou")
         );
 
         // ==================================================
         // NOVO LISTENER
         // ==================================================
+
+        // QUANDO MARCAR OU DESMARCAR
         holder.checkJogou.setOnCheckedChangeListener(
+
+                // RECEBE EVENTO
                 (buttonView, isChecked) -> {
 
                     // SALVA ESTADO
                     jogador.put("jogou", isChecked);
 
+                    // ==================================================
                     // SE DESMARCOU
+                    // ==================================================
+
                     if(!isChecked){
 
                         // ZERA GOLS
@@ -165,145 +269,216 @@ public class JogadorSumulaAdapter
                         // ZERA ASSISTÊNCIAS
                         assist[0] = 0;
 
-                        // SALVA
+                        // SALVA GOLS
                         jogador.put("golsPartida", 0);
 
-                        // SALVA
+                        // SALVA ASSISTÊNCIAS
                         jogador.put("assistPartida", 0);
 
-                        // ATUALIZA TELA
+                        // MOSTRA ZERO GOLS
                         holder.txtGols.setText("0");
 
+                        // MOSTRA ZERO ASSISTÊNCIAS
                         holder.txtAssist.setText("0");
                     }
                 }
         );
 
         // ==================================================
-        // MAIS GOL
+        // BOTÃO MAIS GOL
         // ==================================================
+
         holder.btnMaisGol.setOnClickListener(v -> {
 
-            // SÓ FUNCIONA SE JOGOU
+            // ==================================================
+            // VERIFICA SE JOGOU
+            // ==================================================
+
+            // SE NÃO MARCOU CHECKBOX
             if(!holder.checkJogou.isChecked()){
 
+                // PARA EXECUÇÃO
                 return;
             }
 
+            // ==================================================
             // TOTAL DE GOLS
+            // ==================================================
+
+            // COMEÇA COM ZERO
             int totalGols = 0;
 
+            // ==================================================
             // SOMA TODOS OS GOLS
+            // ==================================================
+
             for(Map<String,Object> j : lista){
 
+                // SOMA GOLS
                 totalGols += j.containsKey("golsPartida")
+
+                        // PEGA VALOR
                         ? ((Number) j.get("golsPartida")).intValue()
+
+                        // SENÃO ZERO
                         : 0;
             }
 
+            // ==================================================
             // PEGA ACTIVITY
+            // ==================================================
+
+            // CONVERTE CONTEXTO
             SumulaActivity activity =
                     (SumulaActivity) context;
 
+            // ==================================================
             // LIMITA PELO PLACAR
+            // ==================================================
+
+            // SE PASSOU DO PLACAR
             if(totalGols >= activity.golsNosso){
 
+                // PARA EXECUÇÃO
                 return;
             }
 
+            // ==================================================
             // SOMA GOL
+            // ==================================================
+
+            // ADICIONA 1
             gols[0]++;
 
-            // SALVA
+            // ==================================================
+            // SALVA GOLS
+            // ==================================================
+
             jogador.put("golsPartida", gols[0]);
 
-            // ATUALIZA
+            // ==================================================
+            // ATUALIZA TEXTO
+            // ==================================================
+
             holder.txtGols.setText(
+
                     String.valueOf(gols[0])
             );
         });
 
         // ==================================================
-        // MENOS GOL
+        // BOTÃO MENOS GOL
         // ==================================================
+
         holder.btnMenosGol.setOnClickListener(v -> {
 
-            // SE MAIOR QUE ZERO
+            // ==================================================
+            // VERIFICA SE É MAIOR QUE ZERO
+            // ==================================================
+
             if(gols[0] > 0){
 
-                // REMOVE
+                // REMOVE 1
                 gols[0]--;
 
                 // SALVA
                 jogador.put("golsPartida", gols[0]);
 
-                // ATUALIZA
+                // ATUALIZA TEXTO
                 holder.txtGols.setText(
+
                         String.valueOf(gols[0])
                 );
             }
         });
 
         // ==================================================
-        // MAIS ASSISTÊNCIA
+        // BOTÃO MAIS ASSISTÊNCIA
         // ==================================================
+
         holder.btnMaisAssist.setOnClickListener(v -> {
 
-            // SÓ FUNCIONA SE JOGOU
+            // ==================================================
+            // VERIFICA SE JOGOU
+            // ==================================================
+
             if(!holder.checkJogou.isChecked()){
 
                 return;
             }
 
+            // ==================================================
             // TOTAL ASSISTÊNCIAS
+            // ==================================================
+
             int totalAssist = 0;
 
+            // ==================================================
             // SOMA TODAS
+            // ==================================================
+
             for(Map<String,Object> j : lista){
 
                 totalAssist += j.containsKey("assistPartida")
+
                         ? ((Number) j.get("assistPartida")).intValue()
+
                         : 0;
             }
 
+            // ==================================================
             // PEGA ACTIVITY
+            // ==================================================
+
             SumulaActivity activity =
                     (SumulaActivity) context;
 
+            // ==================================================
             // LIMITA PELO PLACAR
+            // ==================================================
+
             if(totalAssist >= activity.golsNosso){
 
                 return;
             }
 
-            // SOMA ASSIST
+            // ==================================================
+            // SOMA ASSISTÊNCIA
+            // ==================================================
+
             assist[0]++;
 
             // SALVA
             jogador.put("assistPartida", assist[0]);
 
-            // ATUALIZA
+            // ATUALIZA TEXTO
             holder.txtAssist.setText(
+
                     String.valueOf(assist[0])
             );
         });
 
         // ==================================================
-        // MENOS ASSISTÊNCIA
+        // BOTÃO MENOS ASSISTÊNCIA
         // ==================================================
+
         holder.btnMenosAssist.setOnClickListener(v -> {
 
-            // SE MAIOR QUE ZERO
+            // ==================================================
+            // VERIFICA SE É MAIOR QUE ZERO
+            // ==================================================
+
             if(assist[0] > 0){
 
-                // REMOVE
+                // REMOVE 1
                 assist[0]--;
 
                 // SALVA
                 jogador.put("assistPartida", assist[0]);
 
-                // ATUALIZA
+                // ATUALIZA TEXTO
                 holder.txtAssist.setText(
+
                         String.valueOf(assist[0])
                 );
             }
@@ -311,61 +486,90 @@ public class JogadorSumulaAdapter
     }
 
     // ======================================================
-    // QUANTIDADE DE ITENS
+    // TOTAL DE ITENS
     // ======================================================
+
     @Override
     public int getItemCount(){
 
+        // RETORNA TAMANHO DA LISTA
         return lista.size();
     }
 
     // ======================================================
     // VIEW HOLDER
     // ======================================================
+
     static class ViewHolder extends RecyclerView.ViewHolder{
 
+        // ==================================================
         // CHECKBOX
+        // ==================================================
+
         CheckBox checkJogou;
 
-        // BOTÕES GOL
+        // ==================================================
+        // BOTÕES DE GOL
+        // ==================================================
+
         Button btnMaisGol;
+
         Button btnMenosGol;
 
-        // BOTÕES ASSIST
+        // ==================================================
+        // BOTÕES DE ASSISTÊNCIA
+        // ==================================================
+
         Button btnMaisAssist;
+
         Button btnMenosAssist;
 
+        // ==================================================
         // TEXTOS
+        // ==================================================
+
         TextView txtGols;
+
         TextView txtAssist;
 
+        // ==================================================
         // CONSTRUTOR
+        // ==================================================
+
         public ViewHolder(View itemView){
 
+            // CHAMA CONSTRUTOR PAI
             super(itemView);
 
-            // LIGA CHECKBOX
+            // ==================================================
+            // CONECTA XML COM JAVA
+            // ==================================================
+
+            // CHECKBOX
             checkJogou =
                     itemView.findViewById(R.id.checkJogou);
 
-            // LIGA BOTÕES GOL
+            // BOTÃO MAIS GOL
             btnMaisGol =
                     itemView.findViewById(R.id.btnMaisGol);
 
+            // BOTÃO MENOS GOL
             btnMenosGol =
                     itemView.findViewById(R.id.btnMenosGol);
 
-            // LIGA BOTÕES ASSIST
+            // BOTÃO MAIS ASSISTÊNCIA
             btnMaisAssist =
                     itemView.findViewById(R.id.btnMaisAssist);
 
+            // BOTÃO MENOS ASSISTÊNCIA
             btnMenosAssist =
                     itemView.findViewById(R.id.btnMenosAssist);
 
-            // LIGA TEXTOS
+            // TEXTO GOLS
             txtGols =
                     itemView.findViewById(R.id.txtGols);
 
+            // TEXTO ASSISTÊNCIAS
             txtAssist =
                     itemView.findViewById(R.id.txtAssist);
         }

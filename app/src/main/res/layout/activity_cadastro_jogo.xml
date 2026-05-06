@@ -1,46 +1,140 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="utf-8"?>
 
+<!-- ===================================================== -->
+<!-- CADASTRO DE JOGO -->
+<!-- ===================================================== -->
+<!-- PADRÃO VISUAL LIMPO -->
+<!-- COM ESCUDO ADVERSÁRIO -->
+<!-- DATA E HORA FUNCIONANDO -->
+<!-- ===================================================== -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+
+    android:padding="16dp">
+
+    <!-- ================================================= -->
+    <!-- ESCUDO ADVERSÁRIO -->
+    <!-- ================================================= -->
+
+
+    <ImageView
+        android:id="@+id/imgAdv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:background="#DDDDDD"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <!-- ================================================= -->
     <!-- ADVERSÁRIO -->
+    <!-- ================================================= -->
+
     <EditText
         android:id="@+id/edtAdversario"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:hint="Nome do adversário"
+
         android:textColor="#2E7D32"
+
         android:layout_marginBottom="10dp"/>
 
+    <!-- ================================================= -->
     <!-- DATA -->
+    <!-- ================================================= -->
+
     <EditText
         android:id="@+id/edtData"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:hint="Selecionar data"
+
         android:focusable="false"
+
+        android:clickable="true"
+
+        android:cursorVisible="false"
+
         android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+
         android:layout_marginBottom="10dp"
+
         android:textColor="#2E7D32"/>
 
+    <!-- ================================================= -->
     <!-- HORA -->
+    <!-- ================================================= -->
+
     <EditText
         android:id="@+id/edtHora"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:hint="Selecionar hora"
+
         android:focusable="false"
+
+        android:clickable="true"
+
+        android:cursorVisible="false"
+
         android:drawableEnd="@android:drawable/ic_lock_idle_alarm"
+
         android:layout_marginBottom="10dp"
+
         android:textColor="#2E7D32"/>
 
-    <!-- BOTÃO -->
-    <Button
+    <!-- ================================================= -->
+    <!-- LOCAL -->
+    <!-- ================================================= -->
+
+    <EditText
+        android:id="@+id/edtLocal"
+
         android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:hint="Local do jogo"
+
+        android:textColor="#2E7D32"
+
+        android:layout_marginBottom="18dp"/>
+
+    <!-- ================================================= -->
+    <!-- BOTÃO -->
+    <!-- ================================================= -->
+
+    <Button
+        android:id="@+id/btnCadastrarJogo"
+
+        android:layout_width="match_parent"
+
         android:layout_height="55dp"
+
         android:text="Cadastrar Jogo"
+
         android:onClick="cadastrarJogo"
+
         android:backgroundTint="#2E7D32"
+
         android:textColor="#FFFFFF"/>
 </LinearLayout>

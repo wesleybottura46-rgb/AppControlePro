@@ -1,57 +1,212 @@
 package com.example.appcontrolepro.models;
 
 // =========================================================
-// MODEL: TIME
+// MODEL TIME
 // =========================================================
-// Representa um time cadastrado pelo usuario.
+
+// ESTA CLASSE REPRESENTA UM TIME DO APP.
 //
-// Colecao no Firestore:
-// times
+// CADA DOCUMENTO DA COLEÇÃO "times"
+// DO FIREBASE USA ESSE FORMATO.
+//
+// AGORA O TIME POSSUI:
+//
+// ✔ NOME
+// ✔ CIDADE
+// ✔ ESTADO
+// ✔ DONO DO TIME
+// ✔ EMBLEMA (URL DA IMAGEM)
+
 public class Time {
 
-    // ID do documento no Firestore.
+    // =========================================================
+    // ID DO DOCUMENTO FIREBASE
+    // =========================================================
+
     private String id;
 
-    // Dados principais do time.
+    // =========================================================
+    // NOME DO TIME
+    // =========================================================
+
     private String nome;
+
+    // =========================================================
+    // CIDADE
+    // =========================================================
+
     private String cidade;
+
+    // =========================================================
+    // ESTADO
+    // =========================================================
+
     private String estado;
 
-    // UID do usuario dono do time.
+    // =========================================================
+    // ID DO USUÁRIO DONO
+    // =========================================================
+
     private String userId;
 
-    // URL da imagem enviada para o Firebase Storage.
+    // =========================================================
+    // URL DO EMBLEMA
+    // =========================================================
+
+    // AQUI FICA SALVA A URL DA IMAGEM
+    // ENVIADA PARA O FIREBASE STORAGE.
+
     private String emblema;
 
-    // Construtor vazio obrigatorio para o Firebase.
-    public Time() {
+    // =========================================================
+    // CONSTRUTOR VAZIO
+    // =========================================================
+
+    // O FIREBASE PRECISA DELE
+    // PARA CONSEGUIR LER OS DADOS.
+
+    public Time(){
+
     }
 
-    // Construtor para criar time novo.
-    public Time(String nome, String cidade, String estado, String userId, String emblema) {
+    // =========================================================
+    // CONSTRUTOR COMPLETO
+    // =========================================================
+
+    public Time(
+
+            String nome,
+
+            String cidade,
+
+            String estado,
+
+            String userId,
+
+            String emblema
+    ){
+
+        // SALVA NOME
         this.nome = nome;
+
+        // SALVA CIDADE
         this.cidade = cidade;
+
+        // SALVA ESTADO
         this.estado = estado;
+
+        // SALVA DONO
         this.userId = userId;
+
+        // SALVA EMBLEMA
         this.emblema = emblema;
     }
 
-    // Getters e setters.
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    // =========================================================
+    // GET ID
+    // =========================================================
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public String getId() {
 
-    public String getCidade() { return cidade; }
-    public void setCidade(String cidade) { this.cidade = cidade; }
+        return id;
+    }
 
-    public String getEstado() { return estado; }
-    public void setEstado(String estado) { this.estado = estado; }
+    // =========================================================
+    // SET ID
+    // =========================================================
 
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
+    public void setId(String id) {
 
-    public String getEmblema() { return emblema; }
-    public void setEmblema(String emblema) { this.emblema = emblema; }
+        this.id = id;
+    }
+
+    // =========================================================
+    // GET NOME
+    // =========================================================
+
+    public String getNome() {
+
+        return nome;
+    }
+
+    // =========================================================
+    // SET NOME
+    // =========================================================
+
+    public void setNome(String nome) {
+
+        this.nome = nome;
+    }
+
+    // =========================================================
+    // GET CIDADE
+    // =========================================================
+
+    public String getCidade() {
+
+        return cidade;
+    }
+
+    // =========================================================
+    // SET CIDADE
+    // =========================================================
+
+    public void setCidade(String cidade) {
+
+        this.cidade = cidade;
+    }
+
+    // =========================================================
+    // GET ESTADO
+    // =========================================================
+
+    public String getEstado() {
+
+        return estado;
+    }
+
+    // =========================================================
+    // SET ESTADO
+    // =========================================================
+
+    public void setEstado(String estado) {
+
+        this.estado = estado;
+    }
+
+    // =========================================================
+    // GET USER ID
+    // =========================================================
+
+    public String getUserId() {
+
+        return userId;
+    }
+
+    // =========================================================
+    // SET USER ID
+    // =========================================================
+
+    public void setUserId(String userId) {
+
+        this.userId = userId;
+    }
+
+    // =========================================================
+    // GET EMBLEMA
+    // =========================================================
+
+    public String getEmblema() {
+
+        return emblema;
+    }
+
+    // =========================================================
+    // SET EMBLEMA
+    // =========================================================
+
+    public void setEmblema(String emblema) {
+
+        this.emblema = emblema;
+    }
 }

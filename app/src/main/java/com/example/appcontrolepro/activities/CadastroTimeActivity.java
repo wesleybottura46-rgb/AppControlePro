@@ -1,66 +1,161 @@
 package com.example.appcontrolepro.activities;
 
+// ======================================================
+// IMPORTAÇÕES
+// ======================================================
+
+// Tela padrão do Android
 import androidx.appcompat.app.AppCompatActivity;
 
+// Importações Android
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+// Arquivos do projeto
 import com.example.appcontrolepro.R;
 import com.example.appcontrolepro.database.FirebaseHelper;
 
+// Importações Java
 import java.util.HashMap;
 import java.util.Map;
 
 // ======================================================
 // TELA DE CADASTRO DE TIME
 // ======================================================
+
 public class CadastroTimeActivity extends AppCompatActivity {
 
+    // ======================================================
     // CAMPO DE TEXTO
+    // ======================================================
+
+    // Campo onde digita o nome do time
     EditText edtNomeTime;
+
+    // ======================================================
+    // QUANDO A TELA ABRIR
+    // ======================================================
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        // Liga o XML nessa tela
         setContentView(R.layout.activity_cadastro_time);
 
-        // LIGA O XML
-        edtNomeTime = findViewById(R.id.edtNomeTime);
+        // ======================================================
+        // CONECTA XML COM JAVA
+        // ======================================================
+
+        edtNomeTime =
+                findViewById(R.id.edtNome);
     }
 
     // ======================================================
-    // BOTÃO SALVAR TIME
+    // FUNÇÃO CADASTRAR TIME
     // ======================================================
+
     public void cadastrarTime(View view){
 
-        String nome = edtNomeTime.getText().toString().trim();
+        // ======================================================
+        // PEGA O TEXTO DIGITADO
+        // ======================================================
 
-        // VALIDAÇÃO
+        String nome =
+
+                edtNomeTime
+                        .getText()
+                        .toString()
+                        .trim();
+
+        // ======================================================
+        // VERIFICA SE O CAMPO ESTÁ VAZIO
+        // ======================================================
+
         if(nome.isEmpty()){
-            Toast.makeText(this,"Digite o nome do time",Toast.LENGTH_SHORT).show();
+
+            // Mostra mensagem
+            Toast.makeText(
+
+                    this,
+
+                    "Digite o nome do time",
+
+                    Toast.LENGTH_SHORT
+
+            ).show();
+
             return;
         }
 
-        // CRIA DADOS
-        Map<String,Object> dados = new HashMap<>();
-        dados.put("nome", nome);
+        // ======================================================
+        // CRIA MAPA COM DADOS DO TIME
+        // ======================================================
 
+        Map<String,Object> dados =
+                new HashMap<>();
+
+        // Nome do time
+        dados.put(
+                "nome",
+                nome
+        );
+
+        // ======================================================
         // SALVA NO FIREBASE
+        // ======================================================
+
         FirebaseHelper.getFirestore()
+
+                // Coleção times
                 .collection("times")
+
+                // Adiciona os dados
                 .add(dados)
+
+                // Se deu certo
                 .addOnSuccessListener(doc -> {
 
-                    // 🔥 LIMPA CAMPO
+                    // ==========================================
+                    // LIMPA O CAMPO
+                    // ==========================================
+
                     edtNomeTime.setText("");
 
-                    // 🔥 MENSAGEM DE SUCESSO
-                    Toast.makeText(this,"Time cadastrado com sucesso",Toast.LENGTH_SHORT).show();
+                    // ==========================================
+                    // MENSAGEM DE SUCESSO
+                    // ==========================================
+
+                    Toast.makeText(
+
+                            this,
+
+                            "Time cadastrado com sucesso",
+
+                            Toast.LENGTH_SHORT
+
+                    ).show();
                 })
+
+                // Se deu erro
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this,"Erro ao cadastrar time",Toast.LENGTH_SHORT).show();
+
+                    // ==========================================
+                    // MENSAGEM DE ERRO
+                    // ==========================================
+
+                    Toast.makeText(
+
+                            this,
+
+                            "Erro ao cadastrar time",
+
+                            Toast.LENGTH_SHORT
+
+                    ).show();
                 });
     }
 }

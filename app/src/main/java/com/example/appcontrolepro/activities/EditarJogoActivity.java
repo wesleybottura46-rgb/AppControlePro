@@ -1,131 +1,316 @@
 package com.example.appcontrolepro.activities;
 
+// ======================================================
+// IMPORTAÇÕES
+// ======================================================
+
+// Tela padrão do Android
 import androidx.appcompat.app.AppCompatActivity;
 
+// Importações Android
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
+// Arquivos do projeto
 import com.example.appcontrolepro.R;
 import com.example.appcontrolepro.database.FirebaseHelper;
 
+// Importações Java
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+// ======================================================
+// TELA EDITAR JOGO
+// ======================================================
+
 public class EditarJogoActivity extends AppCompatActivity {
 
-    EditText edtAdversario, edtData, edtHora, edtLocal;
+    // ======================================================
+    // CAMPOS DA TELA
+    // ======================================================
 
+    // Campo do adversário
+    EditText edtAdversario;
+
+    // Campo da data
+    EditText edtData;
+
+    // Campo da hora
+    EditText edtHora;
+
+    // Campo do local
+    EditText edtLocal;
+
+    // ======================================================
+    // ID DO JOGO
+    // ======================================================
+
+    // Guarda o ID do jogo que será editado
     String jogoId;
+
+    // ======================================================
+    // QUANDO A TELA ABRIR
+    // ======================================================
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        // Liga XML nessa tela
         setContentView(R.layout.activity_editar_jogo);
 
-        // ==========================
-        // LIGA XML
-        // ==========================
-        edtAdversario = findViewById(R.id.edtAdversario);
-        edtData = findViewById(R.id.edtData);
-        edtHora = findViewById(R.id.edtHora);
-        edtLocal = findViewById(R.id.edtLocal);
+        // ======================================================
+        // CONECTA XML COM JAVA
+        // ======================================================
 
-        // ==========================
-        // PEGA ID DO JOGO
-        // ==========================
-        jogoId = getIntent().getStringExtra("jogoId");
+        edtAdversario =
+                findViewById(R.id.edtAdversario);
+
+        edtData =
+                findViewById(R.id.edtData);
+
+        edtHora =
+                findViewById(R.id.edtHora);
+
+        edtLocal =
+                findViewById(R.id.edtLocal);
+
+        // ======================================================
+        // PEGA O ID DO JOGO
+        // ======================================================
+
+        jogoId =
+                getIntent().getStringExtra("jogoId");
+
+        // ======================================================
+        // VERIFICA SE O ID EXISTE
+        // ======================================================
 
         if(jogoId == null){
+
+            // Fecha a tela
             finish();
+
             return;
         }
 
-        // CARREGA DADOS DO JOGO
+        // ======================================================
+        // CARREGA OS DADOS DO JOGO
+        // ======================================================
+
         carregarJogo();
 
-        // CALENDÁRIO
+        // ======================================================
+        // ABRIR CALENDÁRIO
+        // ======================================================
+
         edtData.setOnClickListener(v -> abrirCalendario());
 
-        // RELÓGIO
+        // ======================================================
+        // ABRIR RELÓGIO
+        // ======================================================
+
         edtHora.setOnClickListener(v -> abrirRelogio());
     }
 
-    // ==========================
+    // ======================================================
     // CARREGAR JOGO
-    // ==========================
+    // ======================================================
+
     private void carregarJogo(){
 
+        // Busca jogo no Firestore
         FirebaseHelper.getFirestore()
+
+                // Coleção jogos
                 .collection("jogos")
+
+                // Documento do jogo
                 .document(jogoId)
+
+                // Busca os dados
                 .get()
+
+                // Se deu certo
                 .addOnSuccessListener(doc -> {
+
+                    // ======================================================
+                    // VERIFICA SE EXISTE
+                    // ======================================================
 
                     if(doc != null){
 
-                        edtAdversario.setText(doc.getString("adversario"));
-                        edtData.setText(doc.getString("data"));
-                        edtHora.setText(doc.getString("hora"));
-                        edtLocal.setText(doc.getString("local"));
+                        // ==========================================
+                        // COLOCA DADOS NOS CAMPOS
+                        // ==========================================
+
+                        edtAdversario.setText(
+                                doc.getString("adversario")
+                        );
+
+                        edtData.setText(
+                                doc.getString("data")
+                        );
+
+                        edtHora.setText(
+                                doc.getString("hora")
+                        );
+
+                        edtLocal.setText(
+                                doc.getString("local")
+                        );
                     }
                 });
     }
 
-    // ==========================
-    // CALENDÁRIO
-    // ==========================
+    // ======================================================
+    // ABRIR CALENDÁRIO
+    // ======================================================
+
     private void abrirCalendario(){
 
-        Calendar c = Calendar.getInstance();
+        // Pega data atual
+        Calendar c =
+                Calendar.getInstance();
 
-        new DatePickerDialog(this,
+        // Abre calendário
+        new DatePickerDialog(
+
+                this,
+
+                // Quando escolher a data
                 (view, y, m, d) ->
-                        edtData.setText(d + "/" + (m+1) + "/" + y),
+
+                        edtData.setText(
+                                d + "/" + (m + 1) + "/" + y
+                        ),
+
+                // Ano atual
                 c.get(Calendar.YEAR),
+
+                // Mês atual
                 c.get(Calendar.MONTH),
+
+                // Dia atual
                 c.get(Calendar.DAY_OF_MONTH)
+
         ).show();
     }
 
-    // ==========================
-    // RELÓGIO
-    // ==========================
+    // ======================================================
+    // ABRIR RELÓGIO
+    // ======================================================
+
     private void abrirRelogio(){
 
-        Calendar c = Calendar.getInstance();
+        // Pega horário atual
+        Calendar c =
+                Calendar.getInstance();
 
-        new TimePickerDialog(this,
+        // Abre relógio
+        new TimePickerDialog(
+
+                this,
+
+                // Quando escolher a hora
                 (view, h, min) ->
-                        edtHora.setText(String.format("%02d:%02d", h, min)),
+
+                        edtHora.setText(
+
+                                String.format(
+                                        "%02d:%02d",
+                                        h,
+                                        min
+                                )
+                        ),
+
+                // Hora atual
                 c.get(Calendar.HOUR_OF_DAY),
+
+                // Minuto atual
                 c.get(Calendar.MINUTE),
+
+                // Formato 24 horas
                 true
+
         ).show();
     }
 
-    // ==========================
+    // ======================================================
     // SALVAR ALTERAÇÃO
-    // ==========================
+    // ======================================================
+
     public void salvarEdicao(View view){
 
-        Map<String,Object> dados = new HashMap<>();
+        // ======================================================
+        // CRIA MAPA DE DADOS
+        // ======================================================
 
-        dados.put("adversario", edtAdversario.getText().toString());
-        dados.put("data", edtData.getText().toString());
-        dados.put("hora", edtHora.getText().toString());
-        dados.put("local", edtLocal.getText().toString());
+        Map<String,Object> dados =
+                new HashMap<>();
+
+        // Nome do adversário
+        dados.put(
+                "adversario",
+                edtAdversario.getText().toString()
+        );
+
+        // Data do jogo
+        dados.put(
+                "data",
+                edtData.getText().toString()
+        );
+
+        // Hora do jogo
+        dados.put(
+                "hora",
+                edtHora.getText().toString()
+        );
+
+        // Local do jogo
+        dados.put(
+                "local",
+                edtLocal.getText().toString()
+        );
+
+        // ======================================================
+        // ATUALIZA NO FIREBASE
+        // ======================================================
 
         FirebaseHelper.getFirestore()
+
+                // Coleção jogos
                 .collection("jogos")
+
+                // Documento do jogo
                 .document(jogoId)
+
+                // Atualiza os dados
                 .update(dados)
+
+                // Se deu certo
                 .addOnSuccessListener(v -> {
 
-                    Toast.makeText(this,"Jogo atualizado",Toast.LENGTH_SHORT).show();
+                    // ==========================================
+                    // MENSAGEM DE SUCESSO
+                    // ==========================================
+
+                    Toast.makeText(
+
+                            this,
+
+                            "Jogo atualizado",
+
+                            Toast.LENGTH_SHORT
+
+                    ).show();
+
+                    // Fecha a tela
                     finish();
                 });
     }

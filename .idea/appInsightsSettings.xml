@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.appcontrolepro" />
-                  <option name="mobileSdkAppId" value="1:892795668675:android:25f9bcb2afb2dc25efba76" />
-                  <option name="projectId" value="app-controle-pro" />
-                  <option name="projectNumber" value="892795668675" />
+                  <option name="mobileSdkAppId" value="1:597923127285:android:efeacd182583af3929cabc" />
+                  <option name="projectId" value="comexampleappcontrolepro" />
+                  <option name="projectNumber" value="597923127285" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

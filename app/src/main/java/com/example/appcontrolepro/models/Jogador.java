@@ -1,68 +1,333 @@
+// DEFINE O PACOTE DO ARQUIVO
 package com.example.appcontrolepro.models;
 
-// =========================================================
-// MODEL: JOGADOR
-// =========================================================
-// Um model representa o formato dos dados.
+// ======================================================
+// MODEL JOGADOR
+// ======================================================
 //
-// Esta classe mostra como um jogador deve ser salvo/lido.
-// Mesmo que algumas telas usem Map<String, Object>, o model ajuda voce
-// a entender quais campos existem no documento "jogadores" do Firestore.
+// UM MODEL É O "MOLDE" DOS DADOS.
 //
-// Colecao no Firestore:
+// ESSA CLASSE MOSTRA:
+//
+// ✔ COMO UM JOGADOR É SALVO
+// ✔ COMO OS DADOS SÃO ORGANIZADOS
+// ✔ QUAIS CAMPOS EXISTEM
+//
+// ESSA CLASSE REPRESENTA:
+//
+// COLEÇÃO:
 // jogadores
+//
+// ======================================================
+
+// CRIA CLASSE
 public class Jogador {
 
-    // ID do documento no Firestore.
+    // ======================================================
+    // ID
+    // ======================================================
+    //
+    // ID DO DOCUMENTO FIRESTORE
+    //
+    // EXEMPLO:
+    // abc123
+    //
+    // ======================================================
+
+    // ID DO JOGADOR
     private String id;
 
-    // Nome do jogador.
+    // ======================================================
+    // NOME
+    // ======================================================
+    //
+    // NOME DO JOGADOR
+    //
+    // EXEMPLO:
+    // Wesley
+    //
+    // ======================================================
+
+    // NOME
     private String nome;
 
-    // Posicao em campo.
+    // ======================================================
+    // POSIÇÃO
+    // ======================================================
+    //
+    // POSIÇÃO EM CAMPO
+    //
+    // EXEMPLO:
+    // Atacante
+    //
+    // ======================================================
+
+    // POSIÇÃO
     private String posicao;
 
-    // ID do time ao qual esse jogador pertence.
+    // ======================================================
+    // TIME ID
+    // ======================================================
+    //
+    // ID DO TIME
+    //
+    // ISSO LIGA O JOGADOR AO TIME
+    //
+    // ======================================================
+
+    // ID DO TIME
     private String timeId;
 
-    // Estatisticas acumuladas.
+    // ======================================================
+    // ESTATÍSTICAS
+    // ======================================================
+    //
+    // GUARDA:
+    //
+    // ✔ GOLS
+    // ✔ ASSISTÊNCIAS
+    // ✔ JOGOS
+    //
+    // ======================================================
+
+    // TOTAL DE GOLS
     private int gols;
+
+    // TOTAL DE ASSISTÊNCIAS
     private int assistencias;
+
+    // TOTAL DE JOGOS
     private int jogos;
 
-    // Construtor vazio obrigatorio para o Firebase.
+    // ======================================================
+    // CONSTRUTOR VAZIO
+    // ======================================================
+    //
+    // O FIREBASE PRECISA DESSE CONSTRUTOR
+    //
+    // ======================================================
+
+    // CONSTRUTOR VAZIO
     public Jogador() {
+
     }
 
-    // Construtor usado quando queremos criar um jogador novo no codigo.
-    public Jogador(String nome, String posicao, String timeId) {
+    // ======================================================
+    // CONSTRUTOR COMPLETO
+    // ======================================================
+    //
+    // USADO PARA CRIAR NOVO JOGADOR
+    //
+    // ======================================================
+
+    // CONSTRUTOR
+    public Jogador(
+
+            String nome,
+
+            String posicao,
+
+            String timeId
+    ) {
+
+        // SALVA NOME
         this.nome = nome;
+
+        // SALVA POSIÇÃO
         this.posicao = posicao;
+
+        // SALVA TIME ID
         this.timeId = timeId;
+
+        // COMEÇA COM 0 GOLS
         this.gols = 0;
+
+        // COMEÇA COM 0 ASSISTÊNCIAS
         this.assistencias = 0;
+
+        // COMEÇA COM 0 JOGOS
         this.jogos = 0;
     }
 
-    // Getters e setters permitem acessar/alterar campos privados.
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    // ======================================================
+    // GET ID
+    // ======================================================
+    //
+    // RETORNA ID
+    //
+    // ======================================================
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public String getId() {
 
-    public String getPosicao() { return posicao; }
-    public void setPosicao(String posicao) { this.posicao = posicao; }
+        return id;
+    }
 
-    public String getTimeId() { return timeId; }
-    public void setTimeId(String timeId) { this.timeId = timeId; }
+    // ======================================================
+    // SET ID
+    // ======================================================
+    //
+    // ALTERA ID
+    //
+    // ======================================================
 
-    public int getGols() { return gols; }
-    public void setGols(int gols) { this.gols = gols; }
+    public void setId(String id) {
 
-    public int getAssistencias() { return assistencias; }
-    public void setAssistencias(int assistencias) { this.assistencias = assistencias; }
+        this.id = id;
+    }
 
-    public int getJogos() { return jogos; }
-    public void setJogos(int jogos) { this.jogos = jogos; }
+    // ======================================================
+    // GET NOME
+    // ======================================================
+    //
+    // RETORNA NOME
+    //
+    // ======================================================
+
+    public String getNome() {
+
+        return nome;
+    }
+
+    // ======================================================
+    // SET NOME
+    // ======================================================
+    //
+    // ALTERA NOME
+    //
+    // ======================================================
+
+    public void setNome(String nome) {
+
+        this.nome = nome;
+    }
+
+    // ======================================================
+    // GET POSIÇÃO
+    // ======================================================
+    //
+    // RETORNA POSIÇÃO
+    //
+    // ======================================================
+
+    public String getPosicao() {
+
+        return posicao;
+    }
+
+    // ======================================================
+    // SET POSIÇÃO
+    // ======================================================
+    //
+    // ALTERA POSIÇÃO
+    //
+    // ======================================================
+
+    public void setPosicao(String posicao) {
+
+        this.posicao = posicao;
+    }
+
+    // ======================================================
+    // GET TIME ID
+    // ======================================================
+    //
+    // RETORNA ID DO TIME
+    //
+    // ======================================================
+
+    public String getTimeId() {
+
+        return timeId;
+    }
+
+    // ======================================================
+    // SET TIME ID
+    // ======================================================
+    //
+    // ALTERA ID DO TIME
+    //
+    // ======================================================
+
+    public void setTimeId(String timeId) {
+
+        this.timeId = timeId;
+    }
+
+    // ======================================================
+    // GET GOLS
+    // ======================================================
+    //
+    // RETORNA TOTAL DE GOLS
+    //
+    // ======================================================
+
+    public int getGols() {
+
+        return gols;
+    }
+
+    // ======================================================
+    // SET GOLS
+    // ======================================================
+    //
+    // ALTERA GOLS
+    //
+    // ======================================================
+
+    public void setGols(int gols) {
+
+        this.gols = gols;
+    }
+
+    // ======================================================
+    // GET ASSISTÊNCIAS
+    // ======================================================
+    //
+    // RETORNA ASSISTÊNCIAS
+    //
+    // ======================================================
+
+    public int getAssistencias() {
+
+        return assistencias;
+    }
+
+    // ======================================================
+    // SET ASSISTÊNCIAS
+    // ======================================================
+    //
+    // ALTERA ASSISTÊNCIAS
+    //
+    // ======================================================
+
+    public void setAssistencias(int assistencias) {
+
+        this.assistencias = assistencias;
+    }
+
+    // ======================================================
+    // GET JOGOS
+    // ======================================================
+    //
+    // RETORNA TOTAL DE JOGOS
+    //
+    // ======================================================
+
+    public int getJogos() {
+
+        return jogos;
+    }
+
+    // ======================================================
+    // SET JOGOS
+    // ======================================================
+    //
+    // ALTERA TOTAL DE JOGOS
+    //
+    // ======================================================
+
+    public void setJogos(int jogos) {
+
+        this.jogos = jogos;
+    }
 }

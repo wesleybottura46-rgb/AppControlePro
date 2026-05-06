@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "892795668675",
-    "project_id": "app-controle-pro",
-    "storage_bucket": "app-controle-pro.firebasestorage.app"
+    "project_number": "597923127285",
+    "project_id": "comexampleappcontrolepro",
+    "storage_bucket": "comexampleappcontrolepro.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:892795668675:android:25f9bcb2afb2dc25efba76",
+        "mobilesdk_app_id": "1:597923127285:android:efeacd182583af3929cabc",
         "android_client_info": {
           "package_name": "com.example.appcontrolepro"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "597923127285-bq7ojl6nl3jk40k0g2cqlr3tjd25d0qq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appcontrolepro",
+            "certificate_hash": "7ec319737bf59cf113dad817e6afba1b9ba60ff9"
+          }
+        },
+        {
+          "client_id": "597923127285-nt84tm95197u6fpjncpb62e02oqi8rbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyA56ecwXOxY1l_e-qz_ybj2BM7khOFKSSY"
+          "current_key": "AIzaSyCmkq6w-3Hia4Qvq20oUXMeu2G9f4ttX2g"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597923127285-nt84tm95197u6fpjncpb62e02oqi8rbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

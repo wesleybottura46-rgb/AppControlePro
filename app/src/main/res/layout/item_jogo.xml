@@ -1,136 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- ===================================================== -->
-<!-- CARD DO JOGO -->
+<!-- ARQUIVO -->
+<!-- item_jogo.xml -->
 <!-- ===================================================== -->
-<!-- VISUAL LIMPO -->
-<!-- PROPORCIONAL -->
-<!-- SEM ÍCONES -->
+<!-- CARD JOGO -->
+<!-- ===================================================== -->
+<!-- CORRIGIDO -->
+<!-- NOME DOS TIMES -->
+<!-- ESCUDOS -->
+<!-- PLACAR -->
 <!-- ===================================================== -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
+
     android:layout_height="wrap_content"
+
     android:orientation="vertical"
+
     android:paddingTop="10dp"
+
     android:paddingBottom="12dp">
 
+    <!-- ================================================= -->
     <!-- DATA -->
+    <!-- ================================================= -->
+
     <TextView
         android:id="@+id/txtData"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:text="03/05/2026"
+
         android:gravity="center"
+
         android:textStyle="bold"
+
         android:textSize="15sp"
+
         android:textColor="#8C8C8C"
+
         android:paddingBottom="10dp"/>
 
+    <!-- ================================================= -->
     <!-- LINHA -->
+    <!-- ================================================= -->
+
     <View
         android:layout_width="match_parent"
+
         android:layout_height="1dp"
+
         android:background="#ECECEC"
+
         android:layout_marginBottom="14dp"/>
 
+    <!-- ================================================= -->
     <!-- ÁREA CENTRAL -->
+    <!-- ================================================= -->
+
     <LinearLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:orientation="horizontal"
+
         android:gravity="center_vertical">
 
         <!-- ================================================= -->
         <!-- TIME CASA -->
         <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="0dp"
+
             android:layout_height="wrap_content"
+
             android:layout_weight="1.3"
+
             android:orientation="horizontal"
+
             android:gravity="center_vertical|end"
+
             android:paddingEnd="4dp">
 
-            <!-- NOME -->
+            <!-- ================================================= -->
+            <!-- NOME TIME -->
+            <!-- ================================================= -->
+
             <TextView
                 android:id="@+id/txtNossoTime"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:text="Bahia Jovem"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textColor="#222222"
-                android:gravity="end"
-                android:maxLines="2"/>
 
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="Meu Time"
+
+                android:textStyle="bold"
+
+                android:textSize="15sp"
+
+                android:textColor="#222222"
+
+                android:gravity="end"
+
+                android:maxLines="2"
+
+                android:ellipsize="end"
+
+                android:paddingEnd="6dp"/>
+
+            <!-- ================================================= -->
             <!-- ESCUDO -->
+            <!-- ================================================= -->
+
             <ImageView
                 android:id="@+id/imgCasa"
+
                 android:layout_width="44dp"
+
                 android:layout_height="44dp"
-                android:layout_marginStart="6dp"
+
+                android:scaleType="centerCrop"
+
                 android:src="@mipmap/ic_launcher"/>
         </LinearLayout>
 
         <!-- ================================================= -->
         <!-- PLACAR -->
         <!-- ================================================= -->
+
         <TextView
             android:id="@+id/txtPlacar"
+
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
-            android:text="1 x 3"
+
+            android:text="x"
+
             android:textStyle="bold"
-            android:textSize="30sp"
+
+            android:textSize="28sp"
+
             android:textColor="#222222"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"/>
+
+            android:layout_marginStart="8dp"
+
+            android:layout_marginEnd="8dp"/>
 
         <!-- ================================================= -->
         <!-- TIME FORA -->
         <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="0dp"
+
             android:layout_height="wrap_content"
+
             android:layout_weight="1.3"
+
             android:orientation="horizontal"
+
             android:gravity="center_vertical|start"
+
             android:paddingStart="4dp">
 
+            <!-- ================================================= -->
             <!-- ESCUDO -->
+            <!-- ================================================= -->
+
             <ImageView
                 android:id="@+id/imgFora"
+
                 android:layout_width="44dp"
+
                 android:layout_height="44dp"
+
+                android:scaleType="centerCrop"
+
                 android:src="@mipmap/ic_launcher"/>
 
+            <!-- ================================================= -->
             <!-- NOME -->
+            <!-- ================================================= -->
+
             <TextView
                 android:id="@+id/txtAdversario"
-                android:layout_width="72dp"
+
+                android:layout_width="0dp"
+
                 android:layout_height="wrap_content"
-                android:text="Speranza"
+
+                android:layout_weight="1"
+
+                android:text="Adversário"
+
                 android:textStyle="bold"
+
                 android:textSize="15sp"
+
                 android:textColor="#222222"
+
                 android:gravity="start"
+
                 android:maxLines="2"
+
+                android:ellipsize="end"
+
                 android:layout_marginStart="6dp"/>
         </LinearLayout>
 
     </LinearLayout>
 
+    <!-- ================================================= -->
     <!-- VER DETALHES -->
+    <!-- ================================================= -->
+
     <TextView
         android:id="@+id/txtDetalhes"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:text="Ver detalhes"
+
         android:textColor="#8B5CF6"
+
         android:textStyle="bold"
+
         android:textSize="15sp"
+
         android:gravity="center"
+
         android:layout_marginTop="12dp"/>
 
 </LinearLayout>
